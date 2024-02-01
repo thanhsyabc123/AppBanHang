@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "765792427326",
+    "project_id": "appbanhang-b68cd",
+    "storage_bucket": "appbanhang-b68cd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765792427326:android:6e2df58be8e119b9b4e06f",
+        "android_client_info": {
+          "package_name": "com.example.doanmobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDq_aQahPC3f2Tc6TE0c0yk4E4Ij1HHuYQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

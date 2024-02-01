@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Doanmobile"
+        tools:replace="android:theme"
+        tools:targetApi="31">
+        <activity
+            android:name=".hoadonnguoiban.shophienthi"
+            android:exported="false" />
+        <activity
+            android:name=".hoadonnguoiban.hoadonnguoiban"
+            android:exported="false" />
+
+        <activity
+            android:name=".DanhGiaSPcuaShop.XemDanhGiaCuaShop"
+            android:exported="false" />
+        <activity
+            android:name=".hoadon.xemchitiethoadon"
+            android:exported="false" />
+        <activity
+            android:name=".hoadon.xemhoadonuser"
+            android:exported="false" />
+        <activity
+            android:name=".danhgiasanpham.trangxemdanhgianguoidung"
+            android:exported="false" />
+        <activity
+            android:name=".hoadon.thanhtoanthanhcong"
+            android:exported="false" />
+        <activity
+            android:name=".hoadon.trangthanhtoanhoadon"
+            android:exported="false" />
+        <activity
+            android:name=".chat.NguoidungvoiShopActivity"
+            android:exported="false" />
+        <activity
+            android:name=".chat.ShopChat"
+            android:exported="false" />
+        <activity
+            android:name=".chat.ChatActivity"
+            android:exported="false" />
+        <activity
+            android:name=".chat.ChatHistoryActivity"
+            android:exported="false" />
+        <activity
+            android:name=".giohang.GioHangActivity"
+            android:exported="false" />
+        <activity
+            android:name=".coicuahangshopdetail.cuahangshopdetail"
+            android:exported="false" />
+        <activity
+            android:name=".yeuthichsanpham.yeuthichsanpham"
+            android:exported="false" />
+        <activity
+            android:name=".DanhGiaSP.TrangDanhGia"
+            android:exported="false" />
+        <activity
+            android:name=".dangsanpham.chitietsanpham"
+            android:exported="false" />
+        <activity
+            android:name=".dangkynguoiban.quanlysanphamthemsanpham"
+            android:exported="false" />
+        <activity
+            android:name=".dangsanpham.tranggiaodienbanhang"
+            android:exported="false" />
+        <activity
+            android:name=".dangsanpham.UploadCategory"
+            android:exported="false" />
+        <activity
+            android:name=".dangsanpham.Uploadproduct"
+            android:exported="false" />
+        <activity
+            android:name=".dangkygmail"
+            android:exported="false" />
+        <activity
+            android:name=".trangchunguoidung"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".dangkynguoiban.dangkythanhcongthuong"
+            android:exported="false" />
+        <activity
+            android:name=".dangkynguoiban.dangkylenguoiban"
+            android:exported="false" />
+        <activity
+            android:name=".profileuser"
+            android:exported="false" />
+        <activity
+            android:name=".dangnhap"
+            android:exported="true" />
+        <activity
+            android:name=".dangky"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
+            android:name=".ChangeProfile"
+            android:exported="false" />
+        <activity
+            android:name=".quenmatkhau"
+            android:exported="false" />
+        <activity
+            android:name=".dangkynguoiban.manhinhnguoiban"
+            android:exported="false">
+
+        </activity>
+    </application>
+
+</manifest>
