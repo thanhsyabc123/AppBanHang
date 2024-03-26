@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doanmobile.chainofres.LoginActivity;
 import com.example.doanmobile.dangsanpham.tranggiaodienbanhang;
 import com.example.doanmobile.hoadon.xemhoadonuser;
 import com.example.doanmobile.yeuthichsanpham.yeuthichsanpham;
@@ -65,7 +66,7 @@ public class trangchunguoidung extends AppCompatActivity {
             public void onClick(View view) {
                 if (user == null) {
                     Toast.makeText(trangchunguoidung.this, "Yêu cầu đăng nhập", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(trangchunguoidung.this, dangnhap.class);
+                    Intent intent = new Intent(trangchunguoidung.this, LoginActivity.class);
                     startActivity(intent);
                 } else {
                     Intent intent = new Intent(trangchunguoidung.this, xemhoadonuser.class);
@@ -78,7 +79,7 @@ public class trangchunguoidung extends AppCompatActivity {
             public void onClick(View view) {
                 if (user == null) {
                     Toast.makeText(trangchunguoidung.this, "Yêu cầu đăng nhập", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(trangchunguoidung.this, dangnhap.class);
+                    Intent intent = new Intent(trangchunguoidung.this, LoginActivity.class);
                     startActivity(intent);
                 } else {
                     Intent intent = new Intent(trangchunguoidung.this, yeuthichsanpham.class);
@@ -102,7 +103,7 @@ public class trangchunguoidung extends AppCompatActivity {
             public void onClick(View view) {
                 if (user == null) {
                     Toast.makeText(trangchunguoidung.this, "Yêu cầu đăng nhập", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(trangchunguoidung.this, dangnhap.class);
+                    Intent intent = new Intent(trangchunguoidung.this, LoginActivity.class);
                     startActivity(intent);
                 } else {
                     Intent intent = new Intent(trangchunguoidung.this, profileuser.class);
