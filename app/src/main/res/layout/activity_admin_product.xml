@@ -5,7 +5,19 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Admin_ProductActivity">
+    tools:context=".decorator.Admin_ProductActivity">
+
+    <Button
+        android:id="@+id/add_product"
+        android:backgroundTint="#FF5722"
+        android:layout_width="178dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="46dp"
+        android:layout_marginEnd="233dp"
+        android:text="Add product" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_productList"
         android:layout_width="match_parent"

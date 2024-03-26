@@ -6,9 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.example.doanmobile.Admin_ProductActivity;
+import com.example.doanmobile.decorator.Admin_ProductActivity;
 import com.example.doanmobile.DanhGiaSPcuaShop.XemDanhGiaCuaShop;
 import com.example.doanmobile.R;
 import com.example.doanmobile.chat.NguoidungvoiShopActivity;
