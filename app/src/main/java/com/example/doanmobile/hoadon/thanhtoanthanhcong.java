@@ -101,9 +101,6 @@ public class thanhtoanthanhcong extends AppCompatActivity {
                 Log.d("TAG", "Không có detailId được truyền từ Intent");
             }
         }
-
-
-
         luudanhgianha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

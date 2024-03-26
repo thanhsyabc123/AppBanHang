@@ -15,6 +15,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.doanmobile.FirebaseFacade.FirebaseFacade;
 import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -72,7 +73,7 @@ public class dangnhap extends AppCompatActivity {
 
 
         mAuth = FirebaseAuth.getInstance();
-
+        
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
@@ -95,59 +96,18 @@ public class dangnhap extends AppCompatActivity {
             }
         });
 
+
         btnDangNhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String email = Emaildangnhap.getText().toString().trim();
                 String matKhau =  Matkhaudangnhap.getText().toString().trim();
-
                 // Kiểm tra tính hợp lệ của dữ liệu
                 if (email.isEmpty() || matKhau.isEmpty()) {
                     Toast.makeText(dangnhap.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
-                mAuth.signInWithEmailAndPassword(email, matKhau)
-                        .addOnCompleteListener(dangnhap.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                if (task.isSuccessful()) {
-                                    FirebaseUser user = mAuth.getCurrentUser();
-                                    String uid = user.getUid();
-
-                                    DocumentReference df = firestore.collection("KhachHang").document(uid);
-
-
-                                    df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
-                                        @Override
-                                        public void onSuccess(DocumentSnapshot documentSnapshot) {
-                                            if (documentSnapshot.exists()) {
-                                                KhachHang khachHang = documentSnapshot.toObject(KhachHang.class);
-
-                                                if (khachHang != null) {
-                                                    if (khachHang.isKhachHang()) {
-                                                        Intent intent = new Intent(dangnhap.this, trangchunguoidung.class);
-                                                        startActivity(intent);
-                                                    } else if (khachHang.isNguoiBan()) {
-                                                        Intent intent = new Intent(dangnhap.this, manhinhnguoiban.class);
-                                                        startActivity(intent);
-                                                    } else if (khachHang.isNguoiBanVip()) {
-                                                        Intent intent = new Intent(dangnhap.this, manhinhnguoiban.class);
-                                                        startActivity(intent);
-                                                    }
-
-                                                    finish();
-                                                }
-                                            } else {
-                                                Toast.makeText(dangnhap.this, "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }
-                                    });
-                                } else {
-                                    Toast.makeText(dangnhap.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        });
+                signInWithEmailPassword(email,matKhau);
             }
         });
     }
@@ -200,6 +160,50 @@ public class dangnhap extends AppCompatActivity {
                         // ...
                     }
                 });
+    }
+    private void signInWithEmailPassword(String email, String password) {
+        FirebaseFacade FirebaseFacade = new FirebaseFacade(mAuth, firestore, mGoogleSignInClient);
+        FirebaseFacade.signInWithEmailPassword(email, password, new FirebaseFacade.OnSignInListener() {
+            @Override
+            public void onSuccess() {
+                // Sign-in with email and password successful
+                Log.d(TAG, "Đăng nhập thành công với email và mật khẩu");
+                FirebaseUser user = mAuth.getCurrentUser();
+                String uid = user.getUid();
+                DocumentReference df = firestore.collection("KhachHang").document(uid);
+                df.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                    @Override
+                    public void onSuccess(DocumentSnapshot documentSnapshot) {
+                        if (documentSnapshot.exists()) {
+                            KhachHang khachHang = documentSnapshot.toObject(KhachHang.class);
+
+                            if (khachHang != null) {
+                                if (khachHang.isKhachHang()) {
+                                    Intent intent = new Intent(dangnhap.this, trangchunguoidung.class);
+                                    startActivity(intent);
+                                } else if (khachHang.isNguoiBan()) {
+                                    Intent intent = new Intent(dangnhap.this, manhinhnguoiban.class);
+                                    startActivity(intent);
+                                } else if (khachHang.isNguoiBanVip()) {
+                                    Intent intent = new Intent(dangnhap.this, manhinhnguoiban.class);
+                                    startActivity(intent);
+                                }
+
+                                finish();
+                            }
+                        } else {
+                            Toast.makeText(dangnhap.this, "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+
+            @Override
+            public void onFailure(String errorMessage) {
+                // Sign-in with email and password failed
+                Toast.makeText(dangnhap.this, errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 }

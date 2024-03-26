@@ -46,12 +46,9 @@ import java.util.List;
 public class tranggiaodienbanhang extends AppCompatActivity {
 
     ImageView backnguoiban, giaodiengiohang;
-
     RecyclerView theloaisanphamnha;
     List<Category> categoryList;
-
     CategoryAdapter adapter;
-
     List<Products> productsList;
     CollectionReference productCollection;
     ProductAdapter productAdapter;

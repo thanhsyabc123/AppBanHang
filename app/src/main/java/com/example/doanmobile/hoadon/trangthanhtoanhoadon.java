@@ -13,15 +13,13 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangsanpham.CartAdapter;
+import com.example.doanmobile.StrategyDP.CashIPaymentStrategy;
+import com.example.doanmobile.StrategyDP.MoMoIPaymentStrategy;
 import com.example.doanmobile.dangsanpham.CartItem;
-import com.example.doanmobile.dangsanpham.CartManager;
-import com.example.doanmobile.dangsanpham.chitietsanpham;
 import com.example.doanmobile.dangsanpham.tranggiaodienbanhang;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -128,6 +126,10 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             formattedDate = currentDate.format(formatter);
         }
+        //Stategy
+        CashIPaymentStrategy cashPaymentStrategy = new CashIPaymentStrategy(this, neworderId, currentDetailID);
+        MoMoIPaymentStrategy moMoPaymentStrategy = new MoMoIPaymentStrategy(this, merchantName);
+
         ngaydathanghoadon.setText(formattedDate);
         //layten khach hang
         FirebaseAuth fAuth = FirebaseAuth.getInstance();
@@ -165,17 +167,31 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
                 double tongTien = Double.parseDouble(tongtinehoadon.getText().toString());
                 String htThanhToan = "";
 
+
+//                if (thanhtoantienmathoadon.isChecked()) {
+//                    htThanhToan = "Tiền mặt";
+//                    Intent intent = new Intent(trangthanhtoanhoadon.this, thanhtoanthanhcong.class);
+//                    intent.putExtra("orderId", neworderId);
+//                    intent.putExtra("detailId", currentDetailID);
+//                    startActivity(intent);
+//                } else if (thanhtoanhoadonmomo.isChecked()) {
+//                    htThanhToan = "Momo";
+//                    amount = String.valueOf(tongTien);
+//                    requestPayment(merchantName);
+//                } else {
+//                    Toast.makeText(trangthanhtoanhoadon.this, "Phải chọn hình thức thanh toán", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+
                 if (thanhtoantienmathoadon.isChecked()) {
+                    // Cash payment
                     htThanhToan = "Tiền mặt";
-                    Intent intent = new Intent(trangthanhtoanhoadon.this, thanhtoanthanhcong.class);
-                    intent.putExtra("orderId", neworderId);
-                    intent.putExtra("detailId", currentDetailID);
-                    startActivity(intent);
+                    cashPaymentStrategy.pay(tongTien);
                 } else if (thanhtoanhoadonmomo.isChecked()) {
+                    // MoMo payment
                     htThanhToan = "Momo";
                     amount = String.valueOf(tongTien);
-                    requestPayment(merchantName);
-
+                    moMoPaymentStrategy.pay(tongTien);
                 } else {
                     Toast.makeText(trangthanhtoanhoadon.this, "Phải chọn hình thức thanh toán", Toast.LENGTH_SHORT).show();
                     return;
@@ -201,9 +217,7 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
                                             neworderId = highestShopId + 1;
                                         }
                                     }
-
                                     Order order = new Order(neworderId, userID, new Date(), diaChi, tongTien, finalHtThanhToan);
-
                                     int finalNeworderId = neworderId;
                                     db.collection("orders")
                                             .add(order)
@@ -279,46 +293,43 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
     }
 
     // Phương thức để tạo mã chi tiết đơn hàng duy nhất
-
     //thanhtoanmomo
-    private void requestPayment(String idDonHang) {
-        AppMoMoLib.getInstance().setAction(AppMoMoLib.ACTION.PAYMENT);
-        AppMoMoLib.getInstance().setActionType(AppMoMoLib.ACTION_TYPE.GET_TOKEN);
-
-
-
-        Map<String, Object> eventValue = new HashMap<>();
-        //client Required
-        eventValue.put(MoMoParameterNamePayment.MERCHANT_NAME, merchantName);
-        eventValue.put(MoMoParameterNamePayment.MERCHANT_CODE, merchantCode);
-        eventValue.put(MoMoParameterNamePayment.AMOUNT, amount);
-        eventValue.put(MoMoParameterNamePayment.DESCRIPTION, description);
-        //client Optional
-        eventValue.put(MoMoParameterNamePayment.FEE, fee);
-        eventValue.put(MoMoParameterNamePayment.MERCHANT_NAME_LABEL, merchantNameLabel);
-
-        eventValue.put(MoMoParameterNamePayment.REQUEST_ID,  merchantCode+"-"+ UUID.randomUUID().toString());
-        eventValue.put(MoMoParameterNamePayment.PARTNER_CODE, "MOMOC2IC20220510");
-
-        JSONObject objExtraData = new JSONObject();
-        try {
-            objExtraData.put("site_code", "008");
-            objExtraData.put("site_name", "CGV Cresent Mall");
-            objExtraData.put("screen_code", 0);
-            objExtraData.put("screen_name", "Special");
-            objExtraData.put("movie_name", "Kẻ Trộm Mặt Trăng 3");
-            objExtraData.put("movie_format", "2D");
-            objExtraData.put("ticket", "{\"ticket\":{\"01\":{\"type\":\"std\",\"price\":110000,\"qty\":3}}}");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        eventValue.put(MoMoParameterNamePayment.EXTRA_DATA, objExtraData.toString());
-        eventValue.put(MoMoParameterNamePayment.REQUEST_TYPE, "payment");
-        eventValue.put(MoMoParameterNamePayment.LANGUAGE, "vi");
-        eventValue.put(MoMoParameterNamePayment.EXTRA, "");
-        //Request momo app
-        AppMoMoLib.getInstance().requestMoMoCallBack(this, eventValue);
-    }
+//    private void requestPayment(String idDonHang) {
+//        AppMoMoLib.getInstance().setAction(AppMoMoLib.ACTION.PAYMENT);
+//        AppMoMoLib.getInstance().setActionType(AppMoMoLib.ACTION_TYPE.GET_TOKEN);
+//
+//        Map<String, Object> eventValue = new HashMap<>();
+//        //client Required
+//        eventValue.put(MoMoParameterNamePayment.MERCHANT_NAME, merchantName);
+//        eventValue.put(MoMoParameterNamePayment.MERCHANT_CODE, merchantCode);
+//        eventValue.put(MoMoParameterNamePayment.AMOUNT, amount);
+//        eventValue.put(MoMoParameterNamePayment.DESCRIPTION, description);
+//        //client Optional
+//        eventValue.put(MoMoParameterNamePayment.FEE, fee);
+//        eventValue.put(MoMoParameterNamePayment.MERCHANT_NAME_LABEL, merchantNameLabel);
+//
+//        eventValue.put(MoMoParameterNamePayment.REQUEST_ID,  merchantCode+"-"+ UUID.randomUUID().toString());
+//        eventValue.put(MoMoParameterNamePayment.PARTNER_CODE, "MOMOC2IC20220510");
+//
+//        JSONObject objExtraData = new JSONObject();
+//        try {
+//            objExtraData.put("site_code", "008");
+//            objExtraData.put("site_name", "CGV Cresent Mall");
+//            objExtraData.put("screen_code", 0);
+//            objExtraData.put("screen_name", "Special");
+//            objExtraData.put("movie_name", "Kẻ Trộm Mặt Trăng 3");
+//            objExtraData.put("movie_format", "2D");
+//            objExtraData.put("ticket", "{\"ticket\":{\"01\":{\"type\":\"std\",\"price\":110000,\"qty\":3}}}");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        eventValue.put(MoMoParameterNamePayment.EXTRA_DATA, objExtraData.toString());
+//        eventValue.put(MoMoParameterNamePayment.REQUEST_TYPE, "payment");
+//        eventValue.put(MoMoParameterNamePayment.LANGUAGE, "vi");
+//        eventValue.put(MoMoParameterNamePayment.EXTRA, "");
+//        //Request momo app
+//        AppMoMoLib.getInstance().requestMoMoCallBack(this, eventValue);
+//    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

@@ -12,6 +12,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.doanmobile.FirebaseFacade.FirebaseFacade;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +32,7 @@ public class quenmatkhau extends AppCompatActivity {
     FirebaseFirestore firestore;
     EditText Emailquenmatkhau;
     String email;
+    private GoogleSignInClient mGoogleSignInClient;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -48,39 +53,39 @@ public class quenmatkhau extends AppCompatActivity {
         btnSendResetLink = findViewById(R.id.btnSendResetLink);
         mAuth = FirebaseAuth.getInstance();
         firestore = FirebaseFirestore.getInstance();
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestIdToken(getString(R.string.default_web_client_id))
+                .requestEmail()
+                .build();
+        mGoogleSignInClient = GoogleSignIn.getClient(this,gso);
 
         btnSendResetLink.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 final String email = Emailquenmatkhau.getText().toString().trim();
                 if (!TextUtils.isEmpty(email)) {
-                    ResetPassword();
+                    resetPassword(email);
                 } else {
                     Emailquenmatkhau.setError("Email không có trong tài khoản");
                 }
             }
         });
     }
-
-    private void ResetPassword(){
-        email = Emailquenmatkhau.getText().toString().trim();
-        mAuth.sendPasswordResetEmail(email)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void unused) {
-                        Toast.makeText(quenmatkhau.this,"Reset mật khẩu",Toast.LENGTH_SHORT).show();
-                        Intent intent = new Intent(quenmatkhau.this,dangnhap.class);
-                        startActivity(intent);
-                        finish();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(quenmatkhau.this,"Bị lỗi",Toast.LENGTH_SHORT).show();
-                    }
-                });
+    private void resetPassword(String email) {
+        FirebaseFacade firebaseFacade = new FirebaseFacade(mAuth, firestore, mGoogleSignInClient);
+        firebaseFacade.resetPassword(email, new FirebaseFacade.OnResetPasswordListener() {
+            @Override
+            public void onSuccess() {
+                Toast.makeText(quenmatkhau.this, "Reset mật khẩu", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(quenmatkhau.this, dangnhap.class);
+                startActivity(intent);
+                finish();
+            }
+            @Override
+            public void onFailure(String errorMessage) {
+                Toast.makeText(quenmatkhau.this, errorMessage, Toast.LENGTH_SHORT).show();
+            }
+        });
     }
-
 
 }
