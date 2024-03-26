@@ -25,9 +25,9 @@ public class LoginActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.Matkhaudangnhap);
 
         // Configure the chain of responsibility
-        BaseLoginHandler emailValidationHandler = new EmailValidationHandler();
-        BaseLoginHandler passwordValidationHandler = new PasswordValidationHandler();
-        BaseLoginHandler firebaseAuthenticationHandler = new FirebaseAuthenticationHandler();
+        BaseLoginHandler emailValidationHandler = new EmailValidationHandler(this);
+        BaseLoginHandler passwordValidationHandler = new PasswordValidationHandler(this);
+        BaseLoginHandler firebaseAuthenticationHandler = new FirebaseAuthenticationHandler(this);
 
         emailValidationHandler.setNextHandler(passwordValidationHandler);
         passwordValidationHandler.setNextHandler(firebaseAuthenticationHandler);

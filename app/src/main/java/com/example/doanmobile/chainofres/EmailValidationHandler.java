@@ -1,8 +1,16 @@
 package com.example.doanmobile.chainofres;
 
+import android.content.Context;
 import android.text.TextUtils;
+import android.widget.Toast;
 
-public class EmailValidationHandler extends BaseLoginHandler{
+public class EmailValidationHandler extends BaseLoginHandler {
+    private Context context;
+
+    public EmailValidationHandler(Context context) {
+        this.context = context;
+    }
+
     @Override
     public void handleLogin(String email, String password) {
         if (isValidEmail(email)) {
@@ -10,7 +18,7 @@ public class EmailValidationHandler extends BaseLoginHandler{
                 nextHandler.handleLogin(email, password);
             }
         } else {
-            // Handle invalid email
+            Toast.makeText(context, "Email không hợp lệ", Toast.LENGTH_SHORT).show();
         }
     }
 

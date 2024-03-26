@@ -1,6 +1,15 @@
 package com.example.doanmobile.chainofres;
 
+import android.content.Context;
+import android.widget.Toast;
+
+import com.example.doanmobile.dangky;
+
 public class PasswordValidationHandler extends BaseLoginHandler{
+    private Context context;
+    public PasswordValidationHandler(Context context) {
+        this.context = context;
+    }
     @Override
     public void handleLogin(String email, String password) {
         if (isValidPassword(password)) {
@@ -8,7 +17,7 @@ public class PasswordValidationHandler extends BaseLoginHandler{
                 nextHandler.handleLogin(email, password);
             }
         } else {
-            // Handle invalid password
+            Toast.makeText(context, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
         }
     }
 
