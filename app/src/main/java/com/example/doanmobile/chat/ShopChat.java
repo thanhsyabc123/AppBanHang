@@ -16,7 +16,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangkynguoiban.Shop;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
@@ -33,7 +32,7 @@ import java.util.Locale;
 public class ShopChat extends AppCompatActivity {
     private RecyclerView recyclerView;
     private ShopChatAdapter shopChatAdapter;
-    private List<ChatMessage> chatMessageList;
+    private List<ChatMessageModel> chatMessageList;
     private EditText messageEditText;
     private ImageView sendMessageImageView;
     private FirebaseFirestore db;
@@ -53,7 +52,7 @@ public class ShopChat extends AppCompatActivity {
         quaylaitinnhannguoibannha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ShopChat.this, NguoidungvoiShopActivity.class);
+                Intent intent = new Intent(ShopChat.this, UserChatWithShopActivity.class);
                 startActivity(intent);
             }
         });
@@ -130,7 +129,7 @@ public class ShopChat extends AppCompatActivity {
                             String messageText = messageEditText.getText().toString().trim();
                             if (!TextUtils.isEmpty(messageText)) {
                                 if (userID != 0) {
-                                    ChatMessage chatMessage = new ChatMessage();
+                                    ChatMessageModel chatMessage = new ChatMessageModel();
                                     chatMessage.setUserID(userID);
                                     chatMessage.setShopID(shopID);
                                     chatMessage.setMess(messageText);
@@ -192,7 +191,7 @@ public class ShopChat extends AppCompatActivity {
 
                                     for (DocumentChange dc : value.getDocumentChanges()) {
                                         if (dc.getType() == DocumentChange.Type.ADDED) {
-                                            ChatMessage message = dc.getDocument().toObject(ChatMessage.class);
+                                            ChatMessageModel message = dc.getDocument().toObject(ChatMessageModel.class);
                                             chatMessageList.add(message);
                                             shopChatAdapter.notifyItemInserted(chatMessageList.size() - 1);
                                             recyclerView.scrollToPosition(chatMessageList.size() - 1);
@@ -217,7 +216,7 @@ public class ShopChat extends AppCompatActivity {
 
                     for (DocumentChange dc : value.getDocumentChanges()) {
                         if (dc.getType() == DocumentChange.Type.ADDED) {
-                            ChatMessage message = dc.getDocument().toObject(ChatMessage.class);
+                            ChatMessageModel message = dc.getDocument().toObject(ChatMessageModel.class);
                             chatMessageList.add(message);
                             shopChatAdapter.notifyItemInserted(chatMessageList.size() - 1);
                             recyclerView.scrollToPosition(chatMessageList.size() - 1);

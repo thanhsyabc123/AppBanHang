@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,11 +16,9 @@ import com.example.doanmobile.profileuser;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -32,7 +29,7 @@ public class ChatHistoryActivity extends AppCompatActivity {
 
     private RecyclerView chatHistoryRecyclerView;
     private ChatHistoryAdapter chatHistoryAdapter;
-    private List<ChatMessage> chatHistoryList;
+    private List<ChatMessageModel> chatHistoryList;
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
     ImageView quaylaitinnhanthongtincanhannguoidung;
@@ -110,7 +107,7 @@ private TextView textShopOrUserName;
 
                             // Add unique shop names to the chatHistoryList
                             for (String shopName : uniqueShopNames) {
-                                ChatMessage chatMessage = new ChatMessage();
+                                ChatMessageModel chatMessage = new ChatMessageModel();
                                 chatMessage.setShopName(shopName);
                                 chatHistoryList.add(chatMessage);
                             }

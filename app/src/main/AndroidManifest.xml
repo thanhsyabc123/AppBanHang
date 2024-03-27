@@ -43,7 +43,7 @@
             android:name=".hoadon.trangthanhtoanhoadon"
             android:exported="false" />
         <activity
-            android:name=".chat.NguoidungvoiShopActivity"
+            android:name=".chat.UserChatWithShopActivity"
             android:exported="false" />
         <activity
             android:name=".chat.ShopChat"
@@ -58,7 +58,7 @@
             android:name=".giohang.GioHangActivity"
             android:exported="false" />
         <activity
-            android:name=".coicuahangshopdetail.cuahangshopdetail"
+            android:name=".coicuahangshopdetail.ShopDetailActivity"
             android:exported="false" />
         <activity
             android:name=".yeuthichsanpham.yeuthichsanpham"
@@ -67,7 +67,7 @@
             android:name=".DanhGiaSP.TrangDanhGia"
             android:exported="false" />
         <activity
-            android:name=".dangsanpham.chitietsanpham"
+            android:name=".dangsanpham.DetailProductActivity"
             android:exported="false" />
         <activity
             android:name=".dangkynguoiban.quanlysanphamthemsanpham"
@@ -97,7 +97,7 @@
             android:name=".dangkynguoiban.dangkythanhcongthuong"
             android:exported="false" />
         <activity
-            android:name=".dangkynguoiban.dangkylenguoiban"
+            android:name=".dangkynguoiban.RegisterSellerActivity"
             android:exported="false" />
         <activity
             android:name=".profileuser"

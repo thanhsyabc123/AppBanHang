@@ -12,7 +12,6 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangkynguoiban.Shop;
 import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
 import com.example.doanmobile.dangsanpham.ItemSpacingDecoration;
 import com.example.doanmobile.dangsanpham.Products;

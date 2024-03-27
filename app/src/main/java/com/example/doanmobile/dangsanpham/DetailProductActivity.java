@@ -2,9 +2,7 @@ package com.example.doanmobile.dangsanpham;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,27 +18,21 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.doanmobile.R;
 import com.example.doanmobile.chat.ChatActivity;
-import com.example.doanmobile.coicuahangshopdetail.cuahangshopdetail;
-import com.example.doanmobile.dangkynguoiban.Shop;
+import com.example.doanmobile.coicuahangshopdetail.ShopDetailActivity;
 import com.example.doanmobile.danhgiasanpham.ReViewAdapter;
 import com.example.doanmobile.danhgiasanpham.Review;
 import com.example.doanmobile.giohang.GioHangActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class chitietsanpham extends AppCompatActivity {
+public class DetailProductActivity extends AppCompatActivity {
     TextView detailtensp,detailgia,detailmotasp,detailsoluong,tinhtiengiohangdetail,detailtencuahang;
     View detailtru,detailcong,themgiohang;
     ImageView detailanh,backnguoibanchitiet,detailgiohang,nhantinvoishop;
@@ -57,7 +49,7 @@ public class chitietsanpham extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_chitietsanpham);
+        setContentView(R.layout.activity_detail_product);
         detailtensp = findViewById(R.id.detailtensp);
         detailgia = findViewById(R.id.detailgia);
         detailmotasp = findViewById(R.id.detailmotasp);
@@ -118,7 +110,7 @@ public class chitietsanpham extends AppCompatActivity {
         }
         //xuat hien phan danh gia
         reviewList = new ArrayList<>();
-        reViewAdapter = new ReViewAdapter(chitietsanpham.this,reviewList);
+        reViewAdapter = new ReViewAdapter(DetailProductActivity.this,reviewList);
 
         xuathiendanhgiatungsanpham.setLayoutManager(new LinearLayoutManager(this));
         xuathiendanhgiatungsanpham.addItemDecoration(new ItemSpacingDecoration(16));
@@ -144,7 +136,7 @@ public class chitietsanpham extends AppCompatActivity {
         backnguoibanchitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(chitietsanpham.this,tranggiaodienbanhang.class);
+                Intent intent = new Intent(DetailProductActivity.this,tranggiaodienbanhang.class);
                 startActivity(intent);
             }
         });
@@ -158,7 +150,7 @@ public class chitietsanpham extends AppCompatActivity {
                 // Lấy tên cửa hàng từ TextView
                 String shopName = detailtencuahang.getText().toString();
                 int shopId = bundle.getInt("shopId", 0);
-                Intent intent = new Intent(chitietsanpham.this, ChatActivity.class);
+                Intent intent = new Intent(DetailProductActivity.this, ChatActivity.class);
                 intent.putExtra("shopName", shopName);
                 intent.putExtra("shopId",shopId);
                 startActivity(intent);
@@ -243,7 +235,7 @@ public class chitietsanpham extends AppCompatActivity {
         detailtencuahang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(chitietsanpham.this, cuahangshopdetail.class);
+                Intent intent = new Intent(DetailProductActivity.this, ShopDetailActivity.class);
                 intent.putExtra("shopId", shopId);
                 startActivity(intent);
             }
@@ -254,7 +246,7 @@ public class chitietsanpham extends AppCompatActivity {
         detailgiohang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(chitietsanpham.this, GioHangActivity.class);
+                Intent intent = new Intent(DetailProductActivity.this, GioHangActivity.class);
                 startActivity(intent);
             }
         });
@@ -273,7 +265,7 @@ public class chitietsanpham extends AppCompatActivity {
                     CartItem cartItem = new CartItem(bundle.getInt("productID"), bundle.getString("Title"), giacade, bundle.getString("Image"),soLuong);
                     CartManager.getInstance().addToCart(cartItem);
                 }
-                Toast.makeText(chitietsanpham.this,"Thêm thành công",Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetailProductActivity.this,"Thêm thành công",Toast.LENGTH_SHORT).show();
             }
         });
     }

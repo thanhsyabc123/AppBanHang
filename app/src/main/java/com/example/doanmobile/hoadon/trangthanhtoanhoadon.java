@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,16 +14,16 @@ import android.view.View;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangsanpham.CartAdapter;
 import com.example.doanmobile.dangsanpham.CartItem;
-import com.example.doanmobile.dangsanpham.CartManager;
-import com.example.doanmobile.dangsanpham.chitietsanpham;
 import com.example.doanmobile.dangsanpham.tranggiaodienbanhang;
+import com.example.doanmobile.factory_method.CashPaymentFactory;
+import com.example.doanmobile.factory_method.MomoPaymentFactory;
+import com.example.doanmobile.factory_method.PaymentMethod;
+import com.example.doanmobile.factory_method.PaymentMethodFactory;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -165,21 +166,23 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
                 double tongTien = Double.parseDouble(tongtinehoadon.getText().toString());
                 String htThanhToan = "";
 
+                PaymentMethodFactory paymentMethodFactory;
+                Context context = trangthanhtoanhoadon.this;
+                // Inside the OnClickListener
                 if (thanhtoantienmathoadon.isChecked()) {
                     htThanhToan = "Tiền mặt";
-                    Intent intent = new Intent(trangthanhtoanhoadon.this, thanhtoanthanhcong.class);
-                    intent.putExtra("orderId", neworderId);
-                    intent.putExtra("detailId", currentDetailID);
-                    startActivity(intent);
+                    paymentMethodFactory = new CashPaymentFactory(trangthanhtoanhoadon.this);
                 } else if (thanhtoanhoadonmomo.isChecked()) {
                     htThanhToan = "Momo";
-                    amount = String.valueOf(tongTien);
-                    requestPayment(merchantName);
-
+                    paymentMethodFactory = new MomoPaymentFactory(trangthanhtoanhoadon.this);
                 } else {
                     Toast.makeText(trangthanhtoanhoadon.this, "Phải chọn hình thức thanh toán", Toast.LENGTH_SHORT).show();
                     return;
                 }
+
+
+                PaymentMethod paymentMethod = paymentMethodFactory.createPaymentMethod();
+                paymentMethod.pay(String.valueOf(neworderId), String.valueOf(currentDetailID), tongTien);
 
                 FirebaseAuth fAuth = FirebaseAuth.getInstance();
                 FirebaseUser user = fAuth.getCurrentUser();
@@ -222,6 +225,7 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
                                 }
                             });
                 }
+
             }
         });
     }

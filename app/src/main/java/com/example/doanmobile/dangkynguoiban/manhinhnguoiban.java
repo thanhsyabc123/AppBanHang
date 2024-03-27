@@ -6,11 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.doanmobile.DanhGiaSPcuaShop.XemDanhGiaCuaShop;
 import com.example.doanmobile.R;
-import com.example.doanmobile.chat.NguoidungvoiShopActivity;
+import com.example.doanmobile.chat.UserChatWithShopActivity;
 import com.example.doanmobile.dangnhap;
 import com.example.doanmobile.hoadonnguoiban.hoadonnguoiban;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -79,7 +78,7 @@ public class manhinhnguoiban extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(manhinhnguoiban.this, NguoidungvoiShopActivity.class);
+                Intent intent = new Intent(manhinhnguoiban.this, UserChatWithShopActivity.class);
                 startActivity(intent);
             }
         });

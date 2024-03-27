@@ -2,7 +2,7 @@ package com.example.doanmobile.chat;
 
 import java.util.Date;
 
-public class ChatMessage {
+public class ChatMessageModel {
     private int userID;
     private int shopID;
     private String mess;
@@ -17,12 +17,12 @@ public class ChatMessage {
 
     private String shopName;
 
-    public ChatMessage() {
+    public ChatMessageModel() {
     }
 
 
 
-    public ChatMessage(int userID, int shopID, String mess, Date dateObj, String datetime, long timestamp, String tenDayDu, String shopName) {
+    public ChatMessageModel(int userID, int shopID, String mess, Date dateObj, String datetime, long timestamp, String tenDayDu, String shopName) {
         this.userID = userID;
         this.shopID = shopID;
         this.mess = mess;

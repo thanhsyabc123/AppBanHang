@@ -16,22 +16,16 @@ import com.example.doanmobile.KhachHang;
 import com.example.doanmobile.R;
 import com.example.doanmobile.profileuser;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.auth.User;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class dangkylenguoiban extends AppCompatActivity {
+public class RegisterSellerActivity extends AppCompatActivity {
     ImageView dknguoiban, dongdangkyshop;
     EditText nhaptencuahang, nhaptendiachi, nhapmotacuahang;
     CheckBox nguoibanthuong, nguoibanvip;
@@ -71,7 +65,7 @@ public class dangkylenguoiban extends AppCompatActivity {
         dongdangkyshop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(dangkylenguoiban.this, profileuser.class);
+                Intent intent = new Intent(RegisterSellerActivity.this, profileuser.class);
                 startActivity(intent);
             }
         });
@@ -111,15 +105,20 @@ public class dangkylenguoiban extends AppCompatActivity {
                                     if (documentSnapshot.exists()) {
 
                                         KhachHang khachHang = documentSnapshot.toObject(KhachHang.class);
-
-
-
+                                        
+                                        //sử dụng builder
                                         int userId = documentSnapshot.getLong("userID").intValue();
-                                        Shop newShop = new Shop();
-                                        newShop.setShopName(tencuahang);
-                                        newShop.setDiaChi(diachicuahang);
-                                        newShop.setMoTa(motacuahang);
-                                        newShop.setUserId(userId);
+                                        Shop newShop = new Shop.Builder()
+                                                .shopName(tencuahang)
+                                                .diaChi(diachicuahang)
+                                                .moTa(motacuahang)
+                                                .userId(userId)
+                                                .build();
+//                                        Shop newShop = new Shop();
+//                                        newShop.setShopName(tencuahang);
+//                                        newShop.setDiaChi(diachicuahang);
+//                                        newShop.setMoTa(motacuahang);
+//                                        newShop.setUserId(userId);
 
                                         db.collection("Shop")
                                                 .orderBy("shopId", Query.Direction.DESCENDING)
@@ -157,8 +156,8 @@ public class dangkylenguoiban extends AppCompatActivity {
                                                                                 .document(user.getUid())
                                                                                 .set(khachHang);
 
-                                                                        Toast.makeText(dangkylenguoiban.this, "Đăng ký người bán thành công", Toast.LENGTH_SHORT).show();
-                                                                        Intent intent = new Intent(dangkylenguoiban.this, dangkythanhcongthuong.class);
+                                                                        Toast.makeText(RegisterSellerActivity.this, "Đăng ký người bán thành công", Toast.LENGTH_SHORT).show();
+                                                                        Intent intent = new Intent(RegisterSellerActivity.this, dangkythanhcongthuong.class);
                                                                         startActivity(intent);
                                                                     }
                                                                 });

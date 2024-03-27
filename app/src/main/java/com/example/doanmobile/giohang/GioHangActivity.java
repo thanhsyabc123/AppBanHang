@@ -1,8 +1,6 @@
 package com.example.doanmobile.giohang;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -16,13 +14,8 @@ import com.example.doanmobile.R;
 import com.example.doanmobile.dangsanpham.CartAdapter;
 import com.example.doanmobile.dangsanpham.CartItem;
 import com.example.doanmobile.dangsanpham.CartManager;
-import com.example.doanmobile.dangsanpham.ProductAdapter;
-import com.example.doanmobile.dangsanpham.Products;
-import com.example.doanmobile.dangsanpham.chitietsanpham;
 import com.example.doanmobile.dangsanpham.tranggiaodienbanhang;
 import com.example.doanmobile.hoadon.trangthanhtoanhoadon;
-import com.example.doanmobile.trangchunguoidung;
-import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;

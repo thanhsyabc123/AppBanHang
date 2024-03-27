@@ -4,7 +4,6 @@ import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -40,11 +39,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ProductAdapter extends RecyclerView.Adapter<sanphamHolder> {
+public class ProductAdapter extends RecyclerView.Adapter<ProductHolder> {
     private Context context;
     private List<Products> productsList;
     private List<Integer> favoriteProducts;
-    private sanphamHolder holder;
+    private ProductHolder holder;
     private FirebaseFirestore db;
 
 
@@ -58,13 +57,13 @@ public class ProductAdapter extends RecyclerView.Adapter<sanphamHolder> {
 
     @NonNull
     @Override
-    public sanphamHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ProductHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.sanphamitem,parent,false);
-        return new  sanphamHolder(view);
+        return new ProductHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull sanphamHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ProductHolder holder, int position) {
         Products data = productsList.get(position);
         this.holder = holder;
         Glide.with(context).load(data.getImageURL()).into(holder.anhsanpham);
@@ -128,7 +127,7 @@ public class ProductAdapter extends RecyclerView.Adapter<sanphamHolder> {
                 FirebaseUser user = fAuth.getCurrentUser();
                 FirebaseFirestore fStore = FirebaseFirestore.getInstance();
                 if (user != null) {
-                    Intent intent = new Intent(context, chitietsanpham.class);
+                    Intent intent = new Intent(context, DetailProductActivity.class);
                     intent.putExtra("Image", data.getImageURL());
                     intent.putExtra("Title", data.getTitle());
                     intent.putExtra("mota", data.getDescription());
@@ -280,13 +279,13 @@ public class ProductAdapter extends RecyclerView.Adapter<sanphamHolder> {
     }
 }
 
-class sanphamHolder extends  RecyclerView.ViewHolder{
+class ProductHolder extends  RecyclerView.ViewHolder{
     ImageView  anhsanpham;
     TextView tensanphamnha,giasanphamnha,soluotthich;
     CardView recCard;
     ImageButton traitimbth;
 
-    public sanphamHolder (@NonNull View itemView){
+    public ProductHolder(@NonNull View itemView){
         super(itemView);
         anhsanpham = itemView.findViewById(R.id.anhsanpham);
         tensanphamnha = itemView.findViewById(R.id.tensanphamnha);
@@ -294,7 +293,5 @@ class sanphamHolder extends  RecyclerView.ViewHolder{
         recCard = itemView.findViewById(R.id.recCard);
         traitimbth = itemView.findViewById(R.id.traitimbth);
         soluotthich = itemView.findViewById(R.id.soluotthich);
-
-
     }
 }

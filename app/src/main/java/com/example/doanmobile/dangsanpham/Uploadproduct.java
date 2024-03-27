@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.example.doanmobile.R;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -238,6 +239,29 @@ public class Uploadproduct extends AppCompatActivity {
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         CollectionReference productsCollection = db.collection("Products");
         currentProductID++;
+        db.collection("Products")
+                .orderBy("productID", Query.Direction.DESCENDING)
+                .limit(1)
+                .get()
+                .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                    @Override
+                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                        if (!queryDocumentSnapshots.isEmpty()) {
+                            for (QueryDocumentSnapshot document : queryDocumentSnapshots) {
+                                int highestProductID = document.getLong("productID").intValue();
+                                currentProductID = highestProductID + 1;
+                            }
+                        }
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Xử lý khi có lỗi xảy ra
+                        Toast.makeText(Uploadproduct.this,currentProductID,Toast.LENGTH_SHORT).show();
+                    }
+                });
+
         Products product = new Products(currentProductID, shopID, categoryID, title, mota, price, imageURL,0);
         String currentDate = DateFormat.getDateInstance().format(Calendar.getInstance().getTime());
         Query query = productsCollection.whereEqualTo("title", currentDate);

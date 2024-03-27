@@ -1,7 +1,5 @@
 package com.example.doanmobile.chat;
 
-import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,15 +13,15 @@ import com.example.doanmobile.R;
 
 import java.util.List;
 
-public class NguoidungvoiShopAdapter extends RecyclerView.Adapter<NguoidungvoiShopAdapter.NguoidungvoiShopViewHolder> {
-    private List<ChatMessage>NguoidungvoiShopList;
+public class UserChatWithShopAdapter extends RecyclerView.Adapter<UserChatWithShopAdapter.NguoidungvoiShopViewHolder> {
+    private List<ChatMessageModel>NguoidungvoiShopList;
     private ChatHistoryAdapter.OnItemClickListener onItemClickListener;
 
     public interface OnItemClickListener {
-        void onItemClick(ChatMessage chatMessage);
+        void onItemClick(ChatMessageModel chatMessage);
     }
 
-    public NguoidungvoiShopAdapter(List<ChatMessage> NguoidungvoiShopList) {
+    public UserChatWithShopAdapter(List<ChatMessageModel> NguoidungvoiShopList) {
         this.NguoidungvoiShopList = NguoidungvoiShopList;
     }
 
@@ -31,7 +29,7 @@ public class NguoidungvoiShopAdapter extends RecyclerView.Adapter<NguoidungvoiSh
         this.onItemClickListener = listener;
     }
 
-    public void updateNguoidungvoiShopList(List<ChatMessage> newnguoidungvoiShopList) {
+    public void updateNguoidungvoiShopList(List<ChatMessageModel> newnguoidungvoiShopList) {
         NguoidungvoiShopList = newnguoidungvoiShopList;
         notifyDataSetChanged();
     }
@@ -45,7 +43,7 @@ public class NguoidungvoiShopAdapter extends RecyclerView.Adapter<NguoidungvoiSh
 
     @Override
     public void onBindViewHolder(@NonNull NguoidungvoiShopViewHolder holder, int position) {
-        ChatMessage chatMessage = NguoidungvoiShopList.get(position);
+        ChatMessageModel chatMessage = NguoidungvoiShopList.get(position);
         holder.bind(chatMessage);
 
 
@@ -74,7 +72,7 @@ public class NguoidungvoiShopAdapter extends RecyclerView.Adapter<NguoidungvoiSh
             });
         }
 
-        public void bind(ChatMessage chatMessage) {
+        public void bind(ChatMessageModel chatMessage) {
             textUserName.setText(chatMessage.getTenDayDu());
         }
     }

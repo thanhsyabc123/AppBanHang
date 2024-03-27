@@ -24,10 +24,10 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class NguoidungvoiShopActivity extends AppCompatActivity {
+public class UserChatWithShopActivity extends AppCompatActivity {
     private RecyclerView nguoidungvoiShopRecyclerView;
-    private NguoidungvoiShopAdapter nguoidungvoiShopAdapter;
-    private List<ChatMessage> NguoidungvoiShopList;
+    private UserChatWithShopAdapter nguoidungvoiShopAdapter;
+    private List<ChatMessageModel> NguoidungvoiShopList;
     private FirebaseFirestore db;
     private FirebaseUser currentUser;
     ImageView quaylaitinnhanthongtincanhannguoiban;
@@ -39,7 +39,7 @@ public class NguoidungvoiShopActivity extends AppCompatActivity {
         quaylaitinnhanthongtincanhannguoiban.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(NguoidungvoiShopActivity.this, manhinhnguoiban.class);
+                Intent intent = new Intent(UserChatWithShopActivity.this, manhinhnguoiban.class);
                 startActivity(intent);
             }
         });
@@ -50,7 +50,7 @@ public class NguoidungvoiShopActivity extends AppCompatActivity {
 
         nguoidungvoiShopRecyclerView= findViewById(R.id.nguoidungvoiShopRecyclerView);
         NguoidungvoiShopList = new ArrayList<>();
-        nguoidungvoiShopAdapter = new NguoidungvoiShopAdapter(NguoidungvoiShopList);
+        nguoidungvoiShopAdapter = new UserChatWithShopAdapter(NguoidungvoiShopList);
         nguoidungvoiShopRecyclerView.setAdapter(nguoidungvoiShopAdapter);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         nguoidungvoiShopRecyclerView.setLayoutManager(layoutManager);
@@ -60,7 +60,7 @@ public class NguoidungvoiShopActivity extends AppCompatActivity {
         fetchChatHistory();
 
         nguoidungvoiShopAdapter.setOnItemClickListener(chatMessage -> {
-            Intent intent = new Intent(NguoidungvoiShopActivity.this, ShopChat.class);
+            Intent intent = new Intent(UserChatWithShopActivity.this, ShopChat.class);
             intent.putExtra("tenDayDu", chatMessage.getTenDayDu());
             intent.putExtra("shopID", chatMessage.getShopID()); // Bổ sung ID của shop
             intent.putExtra("userID", chatMessage.getUserID()); // Bổ sung ID của người dùng/khách hàng
@@ -95,7 +95,7 @@ public class NguoidungvoiShopActivity extends AppCompatActivity {
 
                             // Add unique shop names to the chatHistoryList
                             for (String tenDayDu : uniquetenDayDu) {
-                                ChatMessage chatMessage = new ChatMessage();
+                                ChatMessageModel chatMessage = new ChatMessageModel();
                                 chatMessage.setTenDayDu(tenDayDu);
                                 NguoidungvoiShopList.add(chatMessage);
                             }

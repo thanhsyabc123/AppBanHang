@@ -20,10 +20,10 @@ public class ShopChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private static final int VIEW_TYPE_SENT = 1;
     private static final int VIEW_TYPE_RECEIVED = 2;
 
-    private List<ChatMessage> messages;
+    private List<ChatMessageModel> messages;
     private FirebaseUser currentUser;
 
-    public ShopChatAdapter(List<ChatMessage> messages, FirebaseUser currentUser) {
+    public ShopChatAdapter(List<ChatMessageModel> messages, FirebaseUser currentUser) {
         this.messages = messages;
         this.currentUser = currentUser;
     }
@@ -43,7 +43,7 @@ public class ShopChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ChatMessage message = messages.get(position);
+        ChatMessageModel message = messages.get(position);
         if (holder.getItemViewType() == VIEW_TYPE_RECEIVED) {
             ((SentMessageHolder) holder).bind(message);
         } else {
@@ -73,7 +73,7 @@ public class ShopChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             sentMessageTime = itemView.findViewById(R.id.txttimesend); // Ánh xạ TextView thời gian
         }
 
-        public void bind(ChatMessage message) {
+        public void bind(ChatMessageModel message) {
             sentMessageText.setText(message.getMess());
             sentMessageTime.setText(formatDate(message.getDateObj())); // Hiển thị thời gian
         }
@@ -88,7 +88,7 @@ public class ShopChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             txttimesend = itemView.findViewById(R.id.txttimesend); // Ánh xạ TextView thời gian
         }
 
-        public void bind(ChatMessage message) {
+        public void bind(ChatMessageModel message) {
             txt_messsend.setText(message.getMess());
             txttimesend.setText(formatDate(message.getDateObj())); // Hiển thị thời gian
         }

@@ -20,10 +20,10 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     private static final int VIEW_TYPE_SENT = 1;
     private static final int VIEW_TYPE_RECEIVED = 2;
 
-    private List<ChatMessage> messages;
+    private List<ChatMessageModel> messages;
     private FirebaseUser currentUser;
 
-    public ChatAdapter(List<ChatMessage> messages, FirebaseUser currentUser) {
+    public ChatAdapter(List<ChatMessageModel> messages, FirebaseUser currentUser) {
         this.messages = messages;
         this.currentUser = currentUser;
     }
@@ -46,7 +46,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
-        ChatMessage message = messages.get(position);
+        ChatMessageModel message = messages.get(position);
         if (holder.getItemViewType() == VIEW_TYPE_SENT) {
             ((SentMessageHolder) holder).bind(message);
         } else {
@@ -69,7 +69,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             sentMessageTime = itemView.findViewById(R.id.txttimesend); // Ánh xạ TextView thời gian
         }
 
-        public void bind(ChatMessage message) {
+        public void bind(ChatMessageModel message) {
             sentMessageText.setText(message.getMess());
             sentMessageTime.setText(formatDate(message.getDateObj())); // Hiển thị thời gian
         }
@@ -85,7 +85,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
             receivedMessageTime = itemView.findViewById(R.id.txt_time_received); // Ánh xạ TextView thời gian
         }
 
-        public void bind(ChatMessage message) {
+        public void bind(ChatMessageModel message) {
             receivedMessageText.setText(message.getMess());
             receivedMessageTime.setText(formatDate(message.getDateObj())); // Hiển thị thời gian
         }

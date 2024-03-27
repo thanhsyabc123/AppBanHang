@@ -1,6 +1,5 @@
 package com.example.doanmobile.chat;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,15 +12,15 @@ import java.util.List;
 
 public class ChatHistoryAdapter extends RecyclerView.Adapter<ChatHistoryAdapter.ChatHistoryViewHolder> {
 
-    private List<ChatMessage> chatHistoryList;
+    private List<ChatMessageModel> chatHistoryList;
     private OnItemClickListener onItemClickListener;
 
     public interface OnItemClickListener {
-        void onItemClick(ChatMessage chatMessage);
+        void onItemClick(ChatMessageModel chatMessage);
 
     }
 
-    public ChatHistoryAdapter(List<ChatMessage> chatHistoryList) {
+    public ChatHistoryAdapter(List<ChatMessageModel> chatHistoryList) {
         this.chatHistoryList = chatHistoryList;
     }
 
@@ -29,7 +28,7 @@ public class ChatHistoryAdapter extends RecyclerView.Adapter<ChatHistoryAdapter.
         this.onItemClickListener = listener;
     }
 
-    public void updateChatHistoryList(List<ChatMessage> newChatHistoryList) {
+    public void updateChatHistoryList(List<ChatMessageModel> newChatHistoryList) {
         chatHistoryList = newChatHistoryList;
         notifyDataSetChanged();
     }
@@ -43,7 +42,7 @@ public class ChatHistoryAdapter extends RecyclerView.Adapter<ChatHistoryAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ChatHistoryViewHolder holder, int position) {
-        ChatMessage chatMessage = chatHistoryList.get(position);
+        ChatMessageModel chatMessage = chatHistoryList.get(position);
         holder.bind(chatMessage);
     }
 
@@ -67,7 +66,7 @@ public class ChatHistoryAdapter extends RecyclerView.Adapter<ChatHistoryAdapter.
             });
         }
 
-        public void bind(ChatMessage chatMessage) {
+        public void bind(ChatMessageModel chatMessage) {
             textShopOrUserName.setText(chatMessage.getShopName());
         }
     }
