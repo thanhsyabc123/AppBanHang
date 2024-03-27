@@ -32,7 +32,7 @@
                     android:layout_width="74dp"
                     android:layout_height="34dp"
                     android:layout_marginStart="340dp"
-                    android:background="@drawable/thanhcongcu"
+                    android:background="@drawable/more_icon"
                     android:layout_marginTop="10dp"
                     />
 
@@ -47,7 +47,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginTop="30dp"
-                    android:background="@drawable/shop"
+                    android:background="@drawable/shop_store_icon"
                     android:layout_marginStart="20dp"
                     />
                 <TextView
@@ -100,11 +100,11 @@
                             android:id="@+id/quanlysanphamcuahang"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/profile"/>
+                            android:background="@drawable/white_rectangle"/>
                         <ImageView
                             android:layout_width="22dp"
                             android:layout_height="22dp"
-                            android:src="@drawable/nguoidung"
+                            android:src="@drawable/user_icon"
                             android:layout_marginTop="15dp"
                             android:layout_marginStart="20dp"
                             />
@@ -118,7 +118,7 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@drawable/backprofile"
+                            android:src="@drawable/right_icon"
                             android:layout_marginStart="400dp"
                             android:layout_marginTop="15dp"
                             android:foregroundGravity="right|center"
@@ -141,11 +141,11 @@
                             android:id="@+id/quanlyhoadoncuahang"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/profile"/>
+                            android:background="@drawable/white_rectangle"/>
                         <ImageView
                             android:layout_width="22dp"
                             android:layout_height="22dp"
-                            android:src="@drawable/donhangcuatoi"
+                            android:src="@drawable/shipping_icon"
                             android:layout_marginTop="15dp"
                             android:layout_marginStart="20dp"
                             />
@@ -159,7 +159,7 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@drawable/backprofile"
+                            android:src="@drawable/right_icon"
                             android:layout_marginStart="400dp"
                             android:layout_marginTop="15dp"
                             android:foregroundGravity="right|center"
@@ -180,11 +180,11 @@
                             android:id="@+id/Xemdanhgia"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/profile" />
+                            android:background="@drawable/white_rectangle" />
                         <ImageView
                             android:layout_width="22dp"
                             android:layout_height="22dp"
-                            android:src="@drawable/review"
+                            android:src="@drawable/start_icon"
                             android:layout_marginTop="15dp"
                             android:layout_marginStart="20dp"
                             />
@@ -198,7 +198,7 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@drawable/backprofile"
+                            android:src="@drawable/right_icon"
                             android:layout_marginStart="400dp"
                             android:layout_marginTop="15dp"
                             android:foregroundGravity="right|center"
@@ -221,12 +221,12 @@
                            android:id="@+id/nhantinvoikhachhang"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:background="@drawable/profile"
+                            android:background="@drawable/white_rectangle"
                             android:clickable="true"/>
                         <ImageView
                             android:layout_width="22dp"
                             android:layout_height="22dp"
-                            android:src="@drawable/nhantin"
+                            android:src="@drawable/message_icon2"
                             android:layout_marginTop="15dp"
                             android:layout_marginStart="20dp"
                             />
@@ -240,7 +240,7 @@
                         <ImageView
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:src="@drawable/backprofile"
+                            android:src="@drawable/right_icon"
                             android:layout_marginStart="400dp"
                             android:layout_marginTop="15dp"
                             android:foregroundGravity="right|center"
@@ -255,7 +255,7 @@
                 android:id="@+id/dangxuatnguoiban"
                 android:layout_width="343dp"
                 android:layout_height="60dp"
-                android:background="@drawable/dangxuat"
+                android:background="@drawable/logout"
                 android:layout_marginTop="530dp"
                 android:layout_marginStart="50dp"
                 />

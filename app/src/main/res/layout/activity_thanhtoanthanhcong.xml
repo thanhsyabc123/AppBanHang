@@ -45,7 +45,7 @@
             <View
                 android:layout_width="400dp"
                 android:layout_height="380dp"
-                android:background="@drawable/tinnhandanhgia"
+                android:background="@drawable/review_message_borrder"
                 android:layout_marginTop="35dp"
                 android:layout_marginStart="20dp"
                 />
@@ -75,7 +75,7 @@
                 android:id="@+id/vetrangchudanhgia"
                 android:layout_width="175dp"
                 android:layout_height="50dp"
-                android:background="@drawable/vetrangchunha"
+                android:background="@drawable/return_to_home_button"
                 android:layout_marginTop="460dp"
                 android:layout_marginStart="30dp"
                 />
@@ -83,7 +83,7 @@
                 android:id="@+id/luudanhgianha"
                 android:layout_width="175dp"
                 android:layout_height="50dp"
-                android:background="@drawable/luudanhgianha"
+                android:background="@drawable/save_review_button"
                 android:layout_marginTop="460dp"
                 android:layout_marginStart="230dp"
                 />

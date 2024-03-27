@@ -23,7 +23,7 @@
         android:layout_height="40dp"
         app:layout_constraintEnd_toStartOf="@+id/shopNameTextView"
         app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/shop"
+        android:background="@drawable/shop_store_icon"
 
         android:layout_marginTop="10dp"
         tools:ignore="MissingConstraints" />

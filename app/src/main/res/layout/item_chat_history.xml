@@ -13,7 +13,7 @@
         android:layout_height="45dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="5dp"
-        android:src="@drawable/shop"
+        android:src="@drawable/shop_store_icon"
         />
     <TextView
         android:id="@+id/textShopOrUserName"

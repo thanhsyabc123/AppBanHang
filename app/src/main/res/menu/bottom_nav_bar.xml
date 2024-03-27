@@ -3,23 +3,23 @@
 
     <item
         android:id="@+id/home"
-        android:icon="@drawable/home"
+        android:icon="@drawable/advertisement"
         android:title="Home" />
     <item
         android:id="@+id/timkiem"
-        android:icon="@drawable/timkiem"
+        android:icon="@drawable/search_icon"
         android:title="Shop" />
     <item
         android:id="@+id/yeuthich"
-        android:icon="@drawable/yeuthich"
+        android:icon="@drawable/Favorite_Icon"
         android:title="Favorites" />
     <item
         android:id="@+id/donhang"
-        android:icon="@drawable/donhang"
+        android:icon="@drawable/bookmark_icon"
         android:title="Đơn hàng" />
     <item
         android:id="@+id/nguoidung"
-        android:icon="@drawable/nguoidung"
+        android:icon="@drawable/user_icon"
         android:title="Profile"
         />
 </menu>

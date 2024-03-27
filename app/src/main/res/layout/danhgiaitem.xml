@@ -12,7 +12,7 @@
         android:layout_height="80dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="20dp"
-        android:src="@drawable/anhdemo"
+        android:src="@drawable/advertisement9"
         />
     <TextView
         android:id="@+id/tennguoidanhgia"

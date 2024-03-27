@@ -39,7 +39,7 @@
                     android:layout_alignParentStart="true"
                     android:layout_marginStart="30dp"
                     android:layout_marginTop="70dp"
-                    android:src="@drawable/shop" />
+                    android:src="@drawable/shop_store_icon" />
 
                 <TextView
                     android:id="@+id/tencuahangsd"
@@ -62,7 +62,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="16dp"
                     android:layout_marginBottom="50dp"
-                    android:background="@drawable/theodoishop_white" />
+                    android:background="@drawable/follow_shope_white_button" />
 
                 <ImageView
                     android:id="@+id/nhantincuahangsd"
@@ -73,7 +73,7 @@
                     android:layout_marginStart="330dp"
                     android:layout_marginTop="10dp"
                     android:layout_marginBottom="16dp"
-                    android:background="@drawable/nhantinvoishop_white" />
+                    android:background="@drawable/message_shop_white" />
             </RelativeLayout>
 
             <RelativeLayout

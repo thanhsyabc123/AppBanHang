@@ -49,7 +49,7 @@
                     <ImageView
                         android:layout_width="404dp"
                         android:layout_height="128dp"
-                        android:background="@drawable/thongtinhoadon"
+                        android:background="@drawable/order_bill_rounded_borrder"
                         android:layout_marginTop="30dp"
 
                         android:layout_marginStart="5dp"
@@ -107,7 +107,7 @@
                 <ImageView
                     android:layout_width="404dp"
                     android:layout_height="58dp"
-                    android:background="@drawable/thongtinhoadon"
+                    android:background="@drawable/order_bill_rounded_borrder"
                     android:layout_marginTop="30dp"
                     android:layout_marginStart="5dp"
                     />
@@ -142,7 +142,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="40dp"
                     android:layout_marginStart="30dp"
-                    android:drawableLeft="@drawable/tien"
+                    android:drawableLeft="@drawable/dollar_icon"
                     android:text="Thanh Toán tiền mặt"
                     android:drawablePadding="10dp"
                     android:paddingStart="20dp"
@@ -155,7 +155,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="110dp"
                     android:layout_marginStart="30dp"
-                    android:drawableLeft="@drawable/momo"
+                    android:drawableLeft="@drawable/momo_icon"
                     android:text="Thanh Toán Momo"
                     android:drawablePadding="10dp"
                     android:textStyle="bold"
@@ -178,7 +178,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
                 android:layout_marginTop="850dp"
-                android:background="@drawable/thongtinhoadon"
+                android:background="@drawable/order_bill_rounded_borrder"
                 >
                 <TextView
                     android:layout_width="120dp"
@@ -226,7 +226,7 @@
                     android:layout_alignParentBottom="true"
                     android:layout_marginEnd="18dp"
                     android:layout_marginBottom="13dp"
-                    android:background="@drawable/ic_muahang_cart" />
+                    android:background="@drawable/buy_button" />
 
             </RelativeLayout>
         </RelativeLayout>

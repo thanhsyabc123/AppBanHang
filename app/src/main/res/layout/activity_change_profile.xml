@@ -57,7 +57,7 @@
                 android:clickable="true"
                 android:contentDescription="back"
                 android:focusable="true"
-                android:src="@drawable/edit_1"
+                android:src="@drawable/beeny_guy"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="8dp" />

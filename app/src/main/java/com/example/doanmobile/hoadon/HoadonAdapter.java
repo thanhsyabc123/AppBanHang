@@ -4,7 +4,6 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -43,7 +42,7 @@ public class HoadonAdapter extends RecyclerView.Adapter<HoadonAdapter.ViewHolder
 
         Glide.with(context)
                 .load(cartItem.getImageURL())
-                .placeholder(R.drawable.anhdemo)
+                .placeholder(R.drawable.advertisement9)
                 .into(holder.productImage);
     }
 

@@ -25,7 +25,7 @@
 
                 <View
                     android:id="@+id/rectangle_39945"
-                    android:background="@drawable/rectangle_39945_shape"
+                    android:background="@drawable/rectangle_orange"
                     android:alpha="0.70999997854233"
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
@@ -81,7 +81,7 @@
 
                 <ImageView
                     android:id="@+id/sky_blue_modern_shopping_sale_and_discount_instagram_story_1"
-                    android:src="@drawable/sky_blue_modern_shopping_sale_and_discount_instagram_story_1"
+                    android:src="@drawable/shopping_cart_icon2"
                     android:contentDescription="sky_blue_modern_shopping_sale_and_discount_instagram_story_1"
                     android:layout_marginStart="6dp"
                     android:layout_marginTop="29dp"
@@ -124,7 +124,7 @@
 
                 <ImageView
                     android:id="@+id/vector"
-                    android:src="@drawable/vector"
+                    android:src="@drawable/eye_icon"
                     android:contentDescription="vector"
                     android:layout_marginStart="366dp"
                     android:layout_marginTop="362dp"
@@ -189,7 +189,7 @@
 
                     <View
                         android:id="@+id/rectangle_30"
-                        android:background="@drawable/rectangle_30_shape"
+                        android:background="@drawable/rectangle_orange_lite"
                         android:layout_marginStart="237dp"
                         android:layout_marginTop="6dp"
                         android:layout_width="132dp"
@@ -225,7 +225,7 @@
 
                             android:layout_width="102dp"
                             android:layout_height="58dp"
-                            android:background="@drawable/face" />
+                            android:background="@drawable/facebook_icon2" />
 
                         <RelativeLayout
                             android:id="@+id/facebook"
@@ -259,7 +259,7 @@
                             android:id="@+id/dangnhapgmail"
                             android:layout_width="102dp"
                             android:layout_height="58dp"
-                            android:background="@drawable/gmail" />
+                            android:background="@drawable/gmail_icon" />
                     </RelativeLayout>
 
 
@@ -277,7 +277,7 @@
                             android:layout_height="58dp"
                             android:layout_marginStart="-1dp"
                             android:layout_marginTop="-1dp"
-                            android:background="@drawable/iphone" />
+                            android:background="@drawable/iphone_icon" />
 
 
                     </RelativeLayout>
@@ -292,7 +292,7 @@
 
                     <View
                         android:id="@+id/_bg__frame_5_ek1"
-                        android:background="@drawable/phanduoi"
+                        android:background="@drawable/brown_rectangle"
                         android:layout_marginStart="0dp"
                         android:layout_marginTop="0dp"
                         android:layout_width="430dp"

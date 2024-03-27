@@ -37,7 +37,7 @@
                android:layout_marginTop="80dp"
                >
                <ImageView
-                   android:src="@drawable/edit_1"
+                   android:src="@drawable/beeny_guy"
                    android:contentDescription="back"
                    android:layout_marginStart="180dp"
                    android:layout_marginTop="20dp"
@@ -96,11 +96,11 @@
                            android:id="@+id/thaydoithongtinuser"
                            android:layout_width="match_parent"
                            android:layout_height="match_parent"
-                           android:background="@drawable/profile"/>
+                           android:background="@drawable/white_rectangle"/>
                        <ImageView
                            android:layout_width="22dp"
                            android:layout_height="22dp"
-                           android:src="@drawable/nguoidung"
+                           android:src="@drawable/user_icon"
                            android:layout_marginTop="15dp"
                            android:layout_marginStart="20dp"
                            />
@@ -114,7 +114,7 @@
                        <ImageView
                            android:layout_width="25dp"
                            android:layout_height="25dp"
-                           android:src="@drawable/backprofile"
+                           android:src="@drawable/right_icon"
                            android:layout_marginStart="400dp"
                            android:layout_marginTop="15dp"
                            android:foregroundGravity="right|center"
@@ -136,11 +136,11 @@
                        <View
                            android:layout_width="match_parent"
                            android:layout_height="match_parent"
-                           android:background="@drawable/profile"/>
+                           android:background="@drawable/white_rectangle"/>
                        <ImageView
                            android:layout_width="22dp"
                            android:layout_height="22dp"
-                           android:src="@drawable/cuahang"
+                           android:src="@drawable/home"
                            android:layout_marginTop="15dp"
                            android:layout_marginStart="20dp"
                            />
@@ -154,7 +154,7 @@
                        <ImageView
                            android:layout_width="25dp"
                            android:layout_height="25dp"
-                           android:src="@drawable/backprofile"
+                           android:src="@drawable/right_icon"
                            android:layout_marginStart="400dp"
                            android:layout_marginTop="15dp"
                            android:foregroundGravity="right|center"
@@ -177,11 +177,11 @@
                            android:id="@+id/xemhoadonpf"
                            android:layout_width="match_parent"
                            android:layout_height="match_parent"
-                           android:background="@drawable/profile"/>
+                           android:background="@drawable/white_rectangle"/>
                        <ImageView
                            android:layout_width="22dp"
                            android:layout_height="22dp"
-                           android:src="@drawable/donhangcuatoi"
+                           android:src="@drawable/shipping_icon"
                            android:layout_marginTop="15dp"
                            android:layout_marginStart="20dp"
                            />
@@ -195,7 +195,7 @@
                        <ImageView
                            android:layout_width="25dp"
                            android:layout_height="25dp"
-                           android:src="@drawable/backprofile"
+                           android:src="@drawable/right_icon"
                            android:layout_marginStart="400dp"
                            android:layout_marginTop="15dp"
                            android:foregroundGravity="right|center"
@@ -218,11 +218,11 @@
                            android:id="@+id/xemyeuthichsanphampf"
                            android:layout_width="match_parent"
                            android:layout_height="match_parent"
-                           android:background="@drawable/profile"/>
+                           android:background="@drawable/white_rectangle"/>
                        <ImageView
                            android:layout_width="22dp"
                            android:layout_height="22dp"
-                           android:src="@drawable/yeuthich"
+                           android:src="@drawable/Favorite_Icon"
                            android:layout_marginTop="15dp"
                            android:layout_marginStart="20dp"
                            />
@@ -236,7 +236,7 @@
                        <ImageView
                            android:layout_width="25dp"
                            android:layout_height="25dp"
-                           android:src="@drawable/backprofile"
+                           android:src="@drawable/right_icon"
                            android:layout_marginStart="400dp"
                            android:layout_marginTop="15dp"
                            android:foregroundGravity="right|center"
@@ -259,11 +259,11 @@
                            android:id="@+id/xemdanhgianguoidungpf"
                            android:layout_width="match_parent"
                            android:layout_height="match_parent"
-                           android:background="@drawable/profile"/>
+                           android:background="@drawable/white_rectangle"/>
                        <ImageView
                            android:layout_width="22dp"
                            android:layout_height="22dp"
-                           android:src="@drawable/review"
+                           android:src="@drawable/start_icon"
                            android:layout_marginTop="15dp"
                            android:layout_marginStart="20dp"
                            />
@@ -277,7 +277,7 @@
                        <ImageView
                            android:layout_width="25dp"
                            android:layout_height="25dp"
-                           android:src="@drawable/backprofile"
+                           android:src="@drawable/right_icon"
                            android:layout_marginStart="400dp"
                            android:layout_marginTop="15dp"
                            android:foregroundGravity="right|center"
@@ -298,12 +298,12 @@
                            android:id="@+id/nhantinvoishoppf"
                            android:layout_width="match_parent"
                            android:layout_height="match_parent"
-                           android:background="@drawable/profile"
+                           android:background="@drawable/white_rectangle"
                            android:clickable="true"/>
                        <ImageView
                            android:layout_width="22dp"
                            android:layout_height="22dp"
-                           android:src="@drawable/nhantin"
+                           android:src="@drawable/message_icon2"
                            android:layout_marginTop="15dp"
                            android:layout_marginStart="20dp"
                            />
@@ -317,7 +317,7 @@
                        <ImageView
                            android:layout_width="25dp"
                            android:layout_height="25dp"
-                           android:src="@drawable/backprofile"
+                           android:src="@drawable/right_icon"
                            android:layout_marginStart="400dp"
                            android:layout_marginTop="15dp"
                            android:foregroundGravity="right|center"
@@ -354,11 +354,11 @@
                            android:id="@+id/dkyngbanpf"
                            android:layout_width="match_parent"
                            android:layout_height="match_parent"
-                           android:background="@drawable/profile"/>
+                           android:background="@drawable/white_rectangle"/>
                        <ImageView
                            android:layout_width="22dp"
                            android:layout_height="22dp"
-                           android:src="@drawable/dkyngban"
+                           android:src="@drawable/vip_seller_icon2"
                            android:layout_marginTop="15dp"
                            android:layout_marginStart="20dp"
                            />
@@ -372,7 +372,7 @@
                        <ImageView
                            android:layout_width="25dp"
                            android:layout_height="25dp"
-                           android:src="@drawable/backprofile"
+                           android:src="@drawable/right_icon"
                            android:layout_marginStart="400dp"
                            android:layout_marginTop="15dp"
                            android:foregroundGravity="right|center"
@@ -389,7 +389,7 @@
                android:id="@+id/dangxuatpf"
                android:layout_width="343dp"
                android:layout_height="60dp"
-               android:background="@drawable/dangxuat"
+               android:background="@drawable/logout"
                android:layout_marginTop="830dp"
                android:layout_marginStart="50dp"
                />

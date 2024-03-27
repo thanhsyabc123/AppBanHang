@@ -15,7 +15,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="20dp"
-            android:src="@drawable/nhaban_x" />
+            android:src="@drawable/x_icon" />
 
         <TextView
             android:layout_width="300dp"
@@ -30,7 +30,7 @@
             android:layout_height="4dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:src="@drawable/nhaban3" />
+            android:src="@drawable/line" />
         <LinearLayout
             android:layout_width="300dp"
             android:layout_height="170dp"
@@ -41,7 +41,7 @@
             <ImageView
                 android:layout_width="170dp"
                 android:layout_height="170dp"
-                android:src="@drawable/nguoibanthuong" />
+                android:src="@drawable/normal_seller_icon" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -86,6 +86,6 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
             android:layout_gravity="center"
-            android:src="@drawable/dknb" />
+            android:src="@drawable/back_to_store" />
     </LinearLayout>
 </LinearLayout>

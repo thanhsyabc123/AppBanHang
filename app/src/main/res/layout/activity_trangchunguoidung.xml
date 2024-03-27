@@ -28,7 +28,7 @@
                 <ImageView
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/icongiohang" />
+                    android:background="@drawable/shopping_cart_icon3" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -45,14 +45,14 @@
                     android:layout_height="25dp"
                     android:layout_marginLeft="180dp"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/thongbao" />
+                    android:background="@drawable/bell_icon" />
 
                 <ImageView
                     android:layout_width="25dp"
                     android:layout_height="25dp"
                     android:layout_marginLeft="25dp"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/giohang" />
+                    android:background="@drawable/shopping_cart5" />
             </LinearLayout>
 
             <TextView
@@ -81,7 +81,7 @@
                 android:layout_marginStart="15dp"
                 android:layout_marginTop="120dp"
                 android:layout_marginEnd="15dp"
-                android:background="@drawable/background_search"
+                android:background="@drawable/search_bar"
                 android:hint="           Search ...."
                 android:paddingStart="10dp"
                 android:textColorHighlight="@color/white" />
@@ -101,7 +101,7 @@
                     android:id="@+id/home1"
                     android:layout_width="346dp"
                     android:layout_height="180dp"
-                    android:background="@drawable/home1"
+                    android:background="@drawable/advertisement1"
 
                     />
 
@@ -109,14 +109,14 @@
                     android:id="@+id/home2"
                     android:layout_width="346dp"
                     android:layout_height="180dp"
-                    android:background="@drawable/home2"
+                    android:background="@drawable/advertisement2"
                     android:contentDescription="home1" />
 
                 <ImageView
                     android:id="@+id/home3"
                     android:layout_width="346dp"
                     android:layout_height="180dp"
-                    android:background="@drawable/home3"
+                    android:background="@drawable/advertisement3"
                     android:contentDescription="home1" />
             </ViewFlipper>
 
@@ -130,13 +130,13 @@
                 <ImageView
                     android:layout_width="165dp"
                     android:layout_height="160dp"
-                    android:background="@drawable/home4" />
+                    android:background="@drawable/advertisement4" />
 
                 <ImageView
                     android:layout_width="165dp"
                     android:layout_height="160dp"
                     android:layout_marginLeft="20dp"
-                    android:background="@drawable/home5" />
+                    android:background="@drawable/advertisement5" />
             </LinearLayout>
 
             <LinearLayout
@@ -160,28 +160,28 @@
                             android:layout_width="88dp"
                             android:layout_height="142dp"
                             android:scaleType="center"
-                            android:src="@drawable/buger" />
+                            android:src="@drawable/buger_icon2" />
 
                         <ImageView
                             android:layout_width="88dp"
                             android:layout_height="142dp"
                             android:scaleType="center"
                             android:layout_marginStart="20dp"
-                            android:src="@drawable/hotdog" />
+                            android:src="@drawable/hotdog_icon" />
 
                         <ImageView
                             android:layout_width="88dp"
                             android:layout_height="142dp"
                             android:scaleType="center"
                             android:layout_marginStart="20dp"
-                            android:src="@drawable/thit" />
+                            android:src="@drawable/barbecue_icon" />
 
                         <ImageView
                             android:layout_width="88dp"
                             android:layout_height="142dp"
                             android:scaleType="center"
                             android:layout_marginStart="20dp"
-                            android:src="@drawable/piza" />
+                            android:src="@drawable/pizza_icon" />
                     </LinearLayout>
                 </HorizontalScrollView>
 
@@ -254,14 +254,14 @@
                             android:layout_width="230dp"
                             android:layout_height="153dp"
                             android:scaleType="center"
-                            android:src="@drawable/home6" />
+                            android:src="@drawable/advertisement6" />
 
                         <ImageView
                             android:layout_width="230dp"
                             android:layout_height="153dp"
                             android:layout_marginLeft="20dp"
                             android:scaleType="center"
-                            android:src="@drawable/home7" />
+                            android:src="@drawable/advertisement7" />
                     </LinearLayout>
                 </HorizontalScrollView>
 
@@ -286,7 +286,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/home"
+                        android:background="@drawable/advertisement"
                         />
                     <TextView
                         android:layout_width="31dp"
@@ -309,7 +309,7 @@
                     <ImageView
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/timkiem"
+                        android:background="@drawable/search_icon"
                         />
                     <TextView
                         android:layout_width="31dp"
@@ -333,7 +333,7 @@
                         android:id="@+id/yeuthichtrangchu"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/yeuthich"
+                        android:background="@drawable/Favorite_Icon"
                         />
                     <TextView
                         android:layout_width="51dp"
@@ -357,7 +357,7 @@
                         android:id="@+id/donhang"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/donhang"
+                        android:background="@drawable/bookmark_icon"
                         />
                     <TextView
                         android:layout_width="51dp"
@@ -381,7 +381,7 @@
                         android:id="@+id/profile"
                         android:layout_width="35dp"
                         android:layout_height="35dp"
-                        android:background="@drawable/nguoidung"
+                        android:background="@drawable/user_icon"
                         />
                     <TextView
                         android:layout_width="51dp"

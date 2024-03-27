@@ -4,7 +4,6 @@ import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -73,11 +72,11 @@ public class ProductAdapter extends RecyclerView.Adapter<sanphamHolder> {
         //lam chuc nang yeu thich san pham
         final boolean[] isFavorite = {false};
         if (favoriteProducts.contains(data.getProductID())) {
-            holder.traitimbth.setImageResource(R.drawable.traitimdo);
+            holder.traitimbth.setImageResource(R.drawable.red_heart_icon);
             isFavorite[0] = true;
 
         } else {
-            holder.traitimbth.setImageResource(R.drawable.traitimbth);
+            holder.traitimbth.setImageResource(R.drawable.heart_icon);
             isFavorite[0] = false;
 
         }
@@ -106,7 +105,7 @@ public class ProductAdapter extends RecyclerView.Adapter<sanphamHolder> {
 
                             // Cập nhật hình ảnh của nút
                             isFavorite[0] = !isFavorite[0]; // Đảo ngược trạng thái yêu thích
-                            holder.traitimbth.setImageResource(isFavorite[0] ? R.drawable.traitimdo : R.drawable.traitimbth);
+                            holder.traitimbth.setImageResource(isFavorite[0] ? R.drawable.red_heart_icon : R.drawable.heart_icon);
 
                         }
                     });

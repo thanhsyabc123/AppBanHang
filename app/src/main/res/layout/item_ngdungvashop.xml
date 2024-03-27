@@ -9,7 +9,7 @@
     app:cardCornerRadius="8dp"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <ImageView
-        android:src="@drawable/edit_1"
+        android:src="@drawable/beeny_guy"
         android:contentDescription="back"
         android:layout_marginStart="5dp"
         android:layout_marginTop="8dp"

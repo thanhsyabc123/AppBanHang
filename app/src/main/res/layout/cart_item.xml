@@ -11,7 +11,7 @@
         android:layout_height="100dp"
         android:layout_alignParentStart="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/anhdemo"/>
+        android:src="@drawable/advertisement9"/>
 
     <TextView
         android:id="@+id/productName"
@@ -57,7 +57,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="34dp"
         android:layout_marginEnd="18dp"
-        android:background="@drawable/btntru" />
+        android:background="@drawable/add_button" />
 
     <View
         android:id="@+id/trucart"
@@ -67,5 +67,5 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="9dp"
         android:layout_marginEnd="81dp"
-        android:background="@drawable/btncong" />
+        android:background="@drawable/minus_button" />
 </RelativeLayout>

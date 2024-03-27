@@ -19,7 +19,7 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_margin="20dp"
-            android:src="@drawable/nhaban_x" />
+            android:src="@drawable/x_icon" />
 
         <TextView
             android:layout_width="300dp"
@@ -36,7 +36,7 @@
             android:layout_height="4dp"
             android:layout_gravity="center"
             android:layout_marginTop="20dp"
-            android:src="@drawable/nhaban3" />
+            android:src="@drawable/line" />
 
         <LinearLayout
             android:layout_width="300dp"
@@ -48,7 +48,7 @@
             <ImageView
                 android:layout_width="178dp"
                 android:layout_height="120dp"
-                android:src="@drawable/nhaban1" />
+                android:src="@drawable/shop_store_icon2" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -194,6 +194,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:onClick="dknguoiban"
-            android:src="@drawable/nhaban2" />
+            android:src="@drawable/become_a_seller_button" />
     </LinearLayout>
 </ScrollView>

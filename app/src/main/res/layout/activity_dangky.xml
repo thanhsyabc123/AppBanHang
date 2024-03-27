@@ -33,7 +33,7 @@
                     android:layout_marginStart="0dp"
                     android:layout_marginTop="0dp"
                     android:alpha="0.70999997854233"
-                    android:background="@drawable/rectangle_39945_shape" />
+                    android:background="@drawable/rectangle_orange" />
 
                 <TextView
                     android:id="@+id/join"
@@ -235,7 +235,7 @@
 
                     android:layout_marginLeft="42dp"
                     android:layout_marginTop="620dp"
-                    android:background="@drawable/dangkybtn"
+                    android:background="@drawable/sign_up"
                     android:gravity="center" />
 
                 <RelativeLayout
@@ -279,7 +279,7 @@
                     android:layout_height="3dp"
                     android:layout_marginStart="266dp"
                     android:layout_marginTop="717dp"
-                    android:background="@drawable/rectangle_30_shape" />
+                    android:background="@drawable/rectangle_orange_lite" />
 
                 <TextView
                     android:id="@+id/or_sign_up_with"
@@ -311,7 +311,7 @@
 
                             android:layout_width="102dp"
                             android:layout_height="58dp"
-                            android:background="@drawable/face" />
+                            android:background="@drawable/facebook_icon2" />
 
                         <RelativeLayout
                             android:id="@+id/facebook"
@@ -345,7 +345,7 @@
                             android:id="@+id/loginwithgoogle"
                             android:layout_width="102dp"
                             android:layout_height="58dp"
-                            android:background="@drawable/gmail" />
+                            android:background="@drawable/gmail_icon" />
                     </RelativeLayout>
 
 
@@ -363,7 +363,7 @@
                             android:layout_height="58dp"
                             android:layout_marginStart="-1dp"
                             android:layout_marginTop="-1dp"
-                            android:background="@drawable/iphone" />
+                            android:background="@drawable/iphone_icon" />
 
 
                     </RelativeLayout>
@@ -376,7 +376,7 @@
                     android:layout_height="38.5dp"
                     android:layout_marginStart="12dp"
                     android:layout_marginTop="31dp"
-                    android:src="@drawable/sky_blue_modern_shopping_sale_and_discount_instagram_story_2" />
+                    android:src="@drawable/shopping_cart_icon" />
 
 
             </RelativeLayout>
@@ -384,7 +384,7 @@
                 android:layout_width="440dp"
                 android:layout_height="46dp"
                 android:layout_marginTop="850dp"
-                android:background="@drawable/phanduoi"
+                android:background="@drawable/brown_rectangle"
                 />
             <TextView
                 android:layout_width="170dp"

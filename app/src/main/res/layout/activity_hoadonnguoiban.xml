@@ -27,7 +27,7 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_marginStart="320dp"
-                android:background="@drawable/close"
+                android:background="@drawable/x_icon2"
                 android:id="@+id/closeordershopne"
                 />
         </RelativeLayout>

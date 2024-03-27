@@ -36,7 +36,7 @@
                     <ImageView
                         android:layout_width="40dp"
                         android:layout_height="40dp"
-                        android:background="@drawable/icongiohang"
+                        android:background="@drawable/shopping_cart_icon3"
                         android:layout_marginTop="15dp"
                         android:layout_marginStart="140dp"
                         />
@@ -56,7 +56,7 @@
                         android:layout_height="25dp"
                         android:layout_marginStart="380dp"
                         android:layout_marginTop="22dp"
-                        android:background="@drawable/giohangden" />
+                        android:background="@drawable/shopping_cart4" />
 
                 </RelativeLayout>
             </RelativeLayout>
@@ -70,7 +70,7 @@
                     android:id="@+id/detailanh"
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
-                    android:src="@drawable/anhdemo"
+                    android:src="@drawable/advertisement9"
                     />
                 <TextView
                     android:id="@+id/detailtensp"
@@ -106,7 +106,7 @@
                 <View
                     android:layout_width="118dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/thanhtoanbtn"
+                    android:background="@drawable/purchase_button"
                     android:layout_marginTop="245dp"
                     android:layout_marginStart="300dp"
                     />
@@ -114,7 +114,7 @@
                     android:id="@+id/detailtru"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/btncong"
+                    android:background="@drawable/minus_button"
                     android:layout_marginTop="245dp"
                     android:layout_marginStart="300dp"
                     />
@@ -122,7 +122,7 @@
                     android:id="@+id/detailcong"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
-                    android:background="@drawable/btntru"
+                    android:background="@drawable/add_button"
                     android:layout_marginTop="245dp"
                     android:layout_marginStart="380dp"
                     />
@@ -142,35 +142,35 @@
                     android:layout_height="22dp"
                     android:layout_marginTop="300dp"
                     android:layout_marginStart="40dp"
-                    android:src="@drawable/ngoisao"
+                    android:src="@drawable/star_icon"
                     />
                 <ImageView
                     android:layout_width="22dp"
                     android:layout_height="22dp"
                     android:layout_marginTop="300dp"
                     android:layout_marginStart="70dp"
-                    android:src="@drawable/ngoisao"
+                    android:src="@drawable/star_icon"
                     />
                 <ImageView
                     android:layout_width="22dp"
                     android:layout_height="22dp"
                     android:layout_marginTop="300dp"
                     android:layout_marginStart="100dp"
-                    android:src="@drawable/ngoisao"
+                    android:src="@drawable/star_icon"
                     />
                 <ImageView
                     android:layout_width="22dp"
                     android:layout_height="22dp"
                     android:layout_marginTop="300dp"
                     android:layout_marginStart="130dp"
-                    android:src="@drawable/ngoisao"
+                    android:src="@drawable/star_icon"
                     />
                 <ImageView
                     android:layout_width="22dp"
                     android:layout_height="22dp"
                     android:layout_marginTop="300dp"
                     android:layout_marginStart="160dp"
-                    android:src="@drawable/ngoisao"
+                    android:src="@drawable/star_icon"
                     />
                 <TextView
                     android:layout_width="21dp"
@@ -184,7 +184,7 @@
                     android:layout_height="22dp"
                     android:layout_marginTop="300dp"
                     android:layout_marginStart="380dp"
-                    android:src="@drawable/traitimbth"
+                    android:src="@drawable/heart_icon"
                     />
             </RelativeLayout>
 
@@ -225,7 +225,7 @@
                     android:layout_height="45dp"
                     android:layout_marginStart="35dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/shop"
+                    android:src="@drawable/shop_store_icon"
                     />
                 <TextView
                     android:layout_width="70dp"
@@ -248,7 +248,7 @@
                 <ImageView
                     android:layout_width="88dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/theodoishop"
+                    android:background="@drawable/follow_shop_button"
                     android:layout_marginTop="45dp"
                     android:layout_marginStart="330dp"
                     />
@@ -256,7 +256,7 @@
                     android:id="@+id/nhantinvoishop"
                     android:layout_width="88dp"
                     android:layout_height="30dp"
-                    android:background="@drawable/nhantinvoishop"
+                    android:background="@drawable/message_shop"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="330dp"
 
@@ -280,12 +280,12 @@
                 <View
                     android:layout_width="match_parent"
                     android:layout_height="88dp"
-                    android:background="@drawable/btnthanhtoandetail"
+                    android:background="@drawable/glowing_border"
                     />
                 <View
                     android:layout_width="98dp"
                     android:layout_height="58dp"
-                    android:background="@drawable/nhantindetail"
+                    android:background="@drawable/message_icon"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="25dp"
                     />
@@ -293,7 +293,7 @@
                     android:id="@+id/themgiohang"
                     android:layout_width="158dp"
                     android:layout_height="58dp"
-                   android:background="@drawable/themvaogiohangdetail"
+                   android:background="@drawable/add_to_cart_details"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="135dp"
                     />
@@ -319,7 +319,7 @@
                     android:id="@+id/muangaydetail"
                     android:layout_width="118dp"
                     android:layout_height="58dp"
-                    android:background="@drawable/muangaydetail"
+                    android:background="@drawable/buy_now_button"
                     android:layout_marginTop="10dp"
                     android:layout_marginStart="300dp"
                     />
