@@ -31,7 +31,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Admin_ProductActivity extends AppCompatActivity implements IProducts{
+public class Admin_Product_DecoratorActivity extends AppCompatActivity implements IProducts{
     RecyclerView recyclerView;
     List<Products> productsList;
     ProductAdapter productAdapter;
@@ -50,14 +50,14 @@ public class Admin_ProductActivity extends AppCompatActivity implements IProduct
 
         recyclerView = findViewById(R.id.rv_productList);
         productsList = new ArrayList<>();
-        productAdapter = new ProductAdapter(Admin_ProductActivity.this, productsList);
+        productAdapter = new ProductAdapter(Admin_Product_DecoratorActivity.this, productsList);
         productAdapter.updateProductFavoriteStatus(favoriteProducts);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(Admin_ProductActivity.this, 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(Admin_Product_DecoratorActivity.this, 2);
         recyclerView.setLayoutManager(gridLayoutManager);
         recyclerView.setAdapter(productAdapter);
 
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(Admin_ProductActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(Admin_Product_DecoratorActivity.this);
         builder.setCancelable(false);
         builder.setView(R.layout.progress_layout);
         AlertDialog dialog = builder.create();
@@ -87,7 +87,7 @@ public class Admin_ProductActivity extends AppCompatActivity implements IProduct
         addProduct.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Admin_ProductActivity.this, UploadCategory.class);
+                Intent intent = new Intent(Admin_Product_DecoratorActivity.this, UploadCategory.class);
                 startActivity(intent);
             }
         });

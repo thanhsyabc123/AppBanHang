@@ -11,7 +11,7 @@ import android.widget.Button;
 import com.example.doanmobile.R;
 import com.example.doanmobile.dangsanpham.UploadCategory;
 
-public class quanlysanphamthemsanpham extends AppCompatActivity implements IProducts{
+public class AdminProduct extends AppCompatActivity implements IProducts{
 
     Button themsanphamcuahang;
     @SuppressLint("MissingInflatedId")
@@ -24,7 +24,7 @@ public class quanlysanphamthemsanpham extends AppCompatActivity implements IProd
         themsanphamcuahang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(quanlysanphamthemsanpham.this, UploadCategory.class);
+                Intent intent = new Intent(AdminProduct.this, UploadCategory.class);
                 startActivity(intent);
             }
         });

@@ -23,7 +23,7 @@
             android:label="@string/title_activity_login"
             android:theme="@style/Theme.Doanmobile" />
         <activity
-            android:name=".decorator.Admin_ProductActivity"
+            android:name=".decorator.Admin_Product_DecoratorActivity"
             android:exported="false" />
         <activity
             android:name=".hoadonnguoiban.shophienthi"
@@ -74,7 +74,7 @@
             android:name=".dangsanpham.chitietsanpham"
             android:exported="false" />
         <activity
-            android:name=".decorator.quanlysanphamthemsanpham"
+            android:name=".decorator.AdminProduct"
             android:exported="false" />
         <activity
             android:name=".dangsanpham.tranggiaodienbanhang"

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
-import com.example.doanmobile.decorator.Admin_ProductActivity;
+import com.example.doanmobile.decorator.Admin_Product_DecoratorActivity;
 import com.example.doanmobile.DanhGiaSPcuaShop.XemDanhGiaCuaShop;
 import com.example.doanmobile.R;
 import com.example.doanmobile.chat.NguoidungvoiShopActivity;
@@ -86,7 +86,7 @@ public class manhinhnguoiban extends AppCompatActivity {
         quanlysanphamcuahang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(manhinhnguoiban.this, Admin_ProductActivity.class);
+                Intent intent = new Intent(manhinhnguoiban.this, Admin_Product_DecoratorActivity.class);
                 startActivity(intent);
             }
         });
