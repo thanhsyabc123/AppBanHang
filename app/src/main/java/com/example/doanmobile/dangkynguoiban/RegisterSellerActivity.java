@@ -105,10 +105,10 @@ public class RegisterSellerActivity extends AppCompatActivity {
                                     if (documentSnapshot.exists()) {
 
                                         KhachHang khachHang = documentSnapshot.toObject(KhachHang.class);
-                                        
+
                                         //sử dụng builder
                                         int userId = documentSnapshot.getLong("userID").intValue();
-                                        Shop newShop = new Shop.Builder()
+                                        Shop newShop = new ShopBuilder()
                                                 .shopName(tencuahang)
                                                 .diaChi(diachicuahang)
                                                 .moTa(motacuahang)

@@ -166,9 +166,9 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
                 double tongTien = Double.parseDouble(tongtinehoadon.getText().toString());
                 String htThanhToan = "";
 
+                //sử dụng factory method
                 PaymentMethodFactory paymentMethodFactory;
-                Context context = trangthanhtoanhoadon.this;
-                // Inside the OnClickListener
+
                 if (thanhtoantienmathoadon.isChecked()) {
                     htThanhToan = "Tiền mặt";
                     paymentMethodFactory = new CashPaymentFactory(trangthanhtoanhoadon.this);
@@ -285,44 +285,44 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
     // Phương thức để tạo mã chi tiết đơn hàng duy nhất
 
     //thanhtoanmomo
-    private void requestPayment(String idDonHang) {
-        AppMoMoLib.getInstance().setAction(AppMoMoLib.ACTION.PAYMENT);
-        AppMoMoLib.getInstance().setActionType(AppMoMoLib.ACTION_TYPE.GET_TOKEN);
-
-
-
-        Map<String, Object> eventValue = new HashMap<>();
-        //client Required
-        eventValue.put(MoMoParameterNamePayment.MERCHANT_NAME, merchantName);
-        eventValue.put(MoMoParameterNamePayment.MERCHANT_CODE, merchantCode);
-        eventValue.put(MoMoParameterNamePayment.AMOUNT, amount);
-        eventValue.put(MoMoParameterNamePayment.DESCRIPTION, description);
-        //client Optional
-        eventValue.put(MoMoParameterNamePayment.FEE, fee);
-        eventValue.put(MoMoParameterNamePayment.MERCHANT_NAME_LABEL, merchantNameLabel);
-
-        eventValue.put(MoMoParameterNamePayment.REQUEST_ID,  merchantCode+"-"+ UUID.randomUUID().toString());
-        eventValue.put(MoMoParameterNamePayment.PARTNER_CODE, "MOMOC2IC20220510");
-
-        JSONObject objExtraData = new JSONObject();
-        try {
-            objExtraData.put("site_code", "008");
-            objExtraData.put("site_name", "CGV Cresent Mall");
-            objExtraData.put("screen_code", 0);
-            objExtraData.put("screen_name", "Special");
-            objExtraData.put("movie_name", "Kẻ Trộm Mặt Trăng 3");
-            objExtraData.put("movie_format", "2D");
-            objExtraData.put("ticket", "{\"ticket\":{\"01\":{\"type\":\"std\",\"price\":110000,\"qty\":3}}}");
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-        eventValue.put(MoMoParameterNamePayment.EXTRA_DATA, objExtraData.toString());
-        eventValue.put(MoMoParameterNamePayment.REQUEST_TYPE, "payment");
-        eventValue.put(MoMoParameterNamePayment.LANGUAGE, "vi");
-        eventValue.put(MoMoParameterNamePayment.EXTRA, "");
-        //Request momo app
-        AppMoMoLib.getInstance().requestMoMoCallBack(this, eventValue);
-    }
+//    private void requestPayment(String idDonHang) {
+//        AppMoMoLib.getInstance().setAction(AppMoMoLib.ACTION.PAYMENT);
+//        AppMoMoLib.getInstance().setActionType(AppMoMoLib.ACTION_TYPE.GET_TOKEN);
+//
+//
+//
+//        Map<String, Object> eventValue = new HashMap<>();
+//        //client Required
+//        eventValue.put(MoMoParameterNamePayment.MERCHANT_NAME, merchantName);
+//        eventValue.put(MoMoParameterNamePayment.MERCHANT_CODE, merchantCode);
+//        eventValue.put(MoMoParameterNamePayment.AMOUNT, amount);
+//        eventValue.put(MoMoParameterNamePayment.DESCRIPTION, description);
+//        //client Optional
+//        eventValue.put(MoMoParameterNamePayment.FEE, fee);
+//        eventValue.put(MoMoParameterNamePayment.MERCHANT_NAME_LABEL, merchantNameLabel);
+//
+//        eventValue.put(MoMoParameterNamePayment.REQUEST_ID,  merchantCode+"-"+ UUID.randomUUID().toString());
+//        eventValue.put(MoMoParameterNamePayment.PARTNER_CODE, "MOMOC2IC20220510");
+//
+//        JSONObject objExtraData = new JSONObject();
+//        try {
+//            objExtraData.put("site_code", "008");
+//            objExtraData.put("site_name", "CGV Cresent Mall");
+//            objExtraData.put("screen_code", 0);
+//            objExtraData.put("screen_name", "Special");
+//            objExtraData.put("movie_name", "Kẻ Trộm Mặt Trăng 3");
+//            objExtraData.put("movie_format", "2D");
+//            objExtraData.put("ticket", "{\"ticket\":{\"01\":{\"type\":\"std\",\"price\":110000,\"qty\":3}}}");
+//        } catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+//        eventValue.put(MoMoParameterNamePayment.EXTRA_DATA, objExtraData.toString());
+//        eventValue.put(MoMoParameterNamePayment.REQUEST_TYPE, "payment");
+//        eventValue.put(MoMoParameterNamePayment.LANGUAGE, "vi");
+//        eventValue.put(MoMoParameterNamePayment.EXTRA, "");
+//        //Request momo app
+//        AppMoMoLib.getInstance().requestMoMoCallBack(this, eventValue);
+//    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
