@@ -19,6 +19,7 @@ import android.widget.Toast;
 import com.example.doanmobile.R;
 import com.example.doanmobile.StrategyDP.CashIPaymentStrategy;
 import com.example.doanmobile.StrategyDP.MoMoIPaymentStrategy;
+import com.example.doanmobile.StrategyDP.iPaymentStrategy;
 import com.example.doanmobile.dangsanpham.CartItem;
 import com.example.doanmobile.dangsanpham.tranggiaodienbanhang;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -64,6 +65,7 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
     private String merchantCode = "MOMOC2IC20220510";
     private String merchantNameLabel = "HoangNgoc";
     private String description = "mua hàng online";
+    private iPaymentStrategy iPaymentStrategy;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,9 +128,9 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             formattedDate = currentDate.format(formatter);
         }
-        //Stategy
-        CashIPaymentStrategy cashPaymentStrategy = new CashIPaymentStrategy(this, neworderId, currentDetailID);
-        MoMoIPaymentStrategy moMoPaymentStrategy = new MoMoIPaymentStrategy(this, merchantName);
+
+//        CashIPaymentStrategy cashPaymentStrategy = new CashIPaymentStrategy(this, neworderId, currentDetailID);
+//        MoMoIPaymentStrategy moMoPaymentStrategy = new MoMoIPaymentStrategy(this, merchantName);
 
         ngaydathanghoadon.setText(formattedDate);
         //layten khach hang
@@ -182,21 +184,22 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
 //                    Toast.makeText(trangthanhtoanhoadon.this, "Phải chọn hình thức thanh toán", Toast.LENGTH_SHORT).show();
 //                    return;
 //                }
-
+                //Strat
                 if (thanhtoantienmathoadon.isChecked()) {
                     // Cash payment
                     htThanhToan = "Tiền mặt";
-                    cashPaymentStrategy.pay(tongTien);
+                    SetStategyCoD();
+                    iPaymentStrategy.pay(tongTien);
                 } else if (thanhtoanhoadonmomo.isChecked()) {
                     // MoMo payment
                     htThanhToan = "Momo";
                     amount = String.valueOf(tongTien);
-                    moMoPaymentStrategy.pay(tongTien);
+                    SetStategyMoMo();
+                    iPaymentStrategy.pay(tongTien);
                 } else {
                     Toast.makeText(trangthanhtoanhoadon.this, "Phải chọn hình thức thanh toán", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 FirebaseAuth fAuth = FirebaseAuth.getInstance();
                 FirebaseUser user = fAuth.getCurrentUser();
 
@@ -365,4 +368,10 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
         }
     }
     //lu vao thong tin chi tiet
+    public void SetStategyMoMo(){
+        iPaymentStrategy=new MoMoIPaymentStrategy(this, merchantName);
+    }
+    public void SetStategyCoD(){
+        iPaymentStrategy= new CashIPaymentStrategy(this, neworderId, currentDetailID);
+    }
 }
