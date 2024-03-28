@@ -1,4 +1,4 @@
-package com.example.doanmobile.hoadonnguoiban;
+package com.example.doanmobile.OrderSeller;
 
 import android.content.Context;
 import android.content.Intent;
@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.doanmobile.R;
 import com.example.doanmobile.dangsanpham.Products;
-import com.example.doanmobile.hoadon.OrderDetail;
+import com.example.doanmobile.Order.OrderDetail;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -23,25 +23,25 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.List;
 
-public class hoadonnguoibanAdapter extends RecyclerView.Adapter<hoadonnguoibanAdapter.ViewHolder> {
+public class OrderSellerAdapter extends RecyclerView.Adapter<OrderSellerAdapter.ViewHolder> {
 
     private Context context;
     private List<OrderDetail> orderDetailList;
 
-    public hoadonnguoibanAdapter(Context context, List<OrderDetail> hoadonshopdetailList) {
+    public OrderSellerAdapter(Context context, List<OrderDetail> hoadonshopdetailList) {
         this.context = context;
         this.orderDetailList = hoadonshopdetailList;
     }
 
     @NonNull
     @Override
-    public hoadonnguoibanAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public OrderSellerAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.orderdetailid, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull hoadonnguoibanAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull OrderSellerAdapter.ViewHolder holder, int position) {
         OrderDetail orderDetail = orderDetailList.get(position);
         holder.quantitydetailorder.setText(String.valueOf(orderDetail.getSoLuong()));
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -63,7 +63,7 @@ public class hoadonnguoibanAdapter extends RecyclerView.Adapter<hoadonnguoibanAd
         holder.ordercardnhe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context, shophienthi.class);
+                Intent intent = new Intent(context, ShowShopActivity.class);
                 intent.putExtra("orderID",orderDetail.getOrderID());
                 context.startActivity(intent);
             }

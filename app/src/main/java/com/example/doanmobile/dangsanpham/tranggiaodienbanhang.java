@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
@@ -14,14 +13,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
-import android.widget.GridLayout;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangnhap;
-import com.example.doanmobile.giohang.GioHangActivity;
+import com.example.doanmobile.LoginActivity;
+import com.example.doanmobile.Cart.CartActivity;
 import com.example.doanmobile.trangchunguoidung;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -90,10 +88,10 @@ public class tranggiaodienbanhang extends AppCompatActivity {
 
                 if (user == null) {
                     Toast.makeText(tranggiaodienbanhang.this, "Yêu cầu đăng nhập", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(tranggiaodienbanhang.this, dangnhap.class);
+                    Intent intent = new Intent(tranggiaodienbanhang.this, LoginActivity.class);
                     startActivity(intent);
                 } else {
-                Intent intent = new Intent(tranggiaodienbanhang.this, GioHangActivity.class);
+                Intent intent = new Intent(tranggiaodienbanhang.this, CartActivity.class);
                 startActivity(intent);}
             }
         });

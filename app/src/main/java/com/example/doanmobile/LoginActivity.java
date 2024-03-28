@@ -15,7 +15,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
+import com.example.doanmobile.dangkynguoiban.SellerActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -33,7 +33,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class dangnhap extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity {
 
     EditText Emaildangnhap,Matkhaudangnhap;
     View btnDangNhap;
@@ -51,7 +51,7 @@ public class dangnhap extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dangnhap);
 
-        dialog = new Dialog(dangnhap.this);
+        dialog = new Dialog(LoginActivity.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_wait);
         dialog.setCanceledOnTouchOutside(false);
@@ -82,7 +82,7 @@ public class dangnhap extends AppCompatActivity {
         quenmatkhau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(dangnhap.this,com.example.doanmobile.quenmatkhau.class);
+                Intent intent = new Intent(LoginActivity.this, ForgetPasswordActivity.class);
                 startActivity(intent);
             }
         });
@@ -90,7 +90,7 @@ public class dangnhap extends AppCompatActivity {
         chuyensangdangkytaikhoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(dangnhap.this, dangky.class);
+                Intent intent = new Intent(LoginActivity.this, SignUpActivity.class);
                 startActivity(intent);
             }
         });
@@ -103,12 +103,12 @@ public class dangnhap extends AppCompatActivity {
 
                 // Kiểm tra tính hợp lệ của dữ liệu
                 if (email.isEmpty() || matKhau.isEmpty()) {
-                    Toast.makeText(dangnhap.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 mAuth.signInWithEmailAndPassword(email, matKhau)
-                        .addOnCompleteListener(dangnhap.this, new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
@@ -126,25 +126,25 @@ public class dangnhap extends AppCompatActivity {
 
                                                 if (khachHang != null) {
                                                     if (khachHang.isKhachHang()) {
-                                                        Intent intent = new Intent(dangnhap.this, trangchunguoidung.class);
+                                                        Intent intent = new Intent(LoginActivity.this, trangchunguoidung.class);
                                                         startActivity(intent);
                                                     } else if (khachHang.isNguoiBan()) {
-                                                        Intent intent = new Intent(dangnhap.this, manhinhnguoiban.class);
+                                                        Intent intent = new Intent(LoginActivity.this, SellerActivity.class);
                                                         startActivity(intent);
                                                     } else if (khachHang.isNguoiBanVip()) {
-                                                        Intent intent = new Intent(dangnhap.this, manhinhnguoiban.class);
+                                                        Intent intent = new Intent(LoginActivity.this, SellerActivity.class);
                                                         startActivity(intent);
                                                     }
 
                                                     finish();
                                                 }
                                             } else {
-                                                Toast.makeText(dangnhap.this, "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(LoginActivity.this, "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
                                 } else {
-                                    Toast.makeText(dangnhap.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(LoginActivity.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -186,7 +186,7 @@ public class dangnhap extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "Đăng nhap thanh công");
                             FirebaseUser user = mAuth.getCurrentUser();
-                            Intent i = new Intent(dangnhap.this,trangchunguoidung.class);
+                            Intent i = new Intent(LoginActivity.this,trangchunguoidung.class);
                             startActivity(i);
                             finish();
                             dialog.dismiss();
@@ -194,7 +194,7 @@ public class dangnhap extends AppCompatActivity {
                         } else {
 
                             dialog.dismiss();
-                            Toast.makeText(dangnhap.this,"Đăng nhặp thất bại",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this,"Đăng nhặp thất bại",Toast.LENGTH_SHORT).show();
                         }
 
                         // ...

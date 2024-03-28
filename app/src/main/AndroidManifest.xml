@@ -18,29 +18,29 @@
         tools:replace="android:theme"
         tools:targetApi="31">
         <activity
-            android:name=".hoadonnguoiban.shophienthi"
+            android:name=".OrderSeller.ShowShopActivity"
             android:exported="false" />
         <activity
-            android:name=".hoadonnguoiban.hoadonnguoiban"
+            android:name=".OrderSeller.OrderSellerActivity"
             android:exported="false" />
 
         <activity
             android:name=".DanhGiaSPcuaShop.XemDanhGiaCuaShop"
             android:exported="false" />
         <activity
-            android:name=".hoadon.xemchitiethoadon"
+            android:name=".Order.OrderDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".hoadon.xemhoadonuser"
+            android:name=".Order.UserOrderActivity"
             android:exported="false" />
         <activity
             android:name=".danhgiasanpham.trangxemdanhgianguoidung"
             android:exported="false" />
         <activity
-            android:name=".hoadon.thanhtoanthanhcong"
+            android:name=".Order.PaymentSuccessActivity"
             android:exported="false" />
         <activity
-            android:name=".hoadon.trangthanhtoanhoadon"
+            android:name=".Order.PaymentActivity"
             android:exported="false" />
         <activity
             android:name=".chat.UserChatWithShopActivity"
@@ -55,13 +55,13 @@
             android:name=".chat.ChatHistoryActivity"
             android:exported="false" />
         <activity
-            android:name=".giohang.GioHangActivity"
+            android:name=".Cart.CartActivity"
             android:exported="false" />
         <activity
             android:name=".coicuahangshopdetail.ShopDetailActivity"
             android:exported="false" />
         <activity
-            android:name=".yeuthichsanpham.yeuthichsanpham"
+            android:name=".Favorite.FavoriteActivity"
             android:exported="false" />
         <activity
             android:name=".DanhGiaSP.TrangDanhGia"
@@ -70,7 +70,7 @@
             android:name=".dangsanpham.DetailProductActivity"
             android:exported="false" />
         <activity
-            android:name=".dangkynguoiban.quanlysanphamthemsanpham"
+            android:name=".dangkynguoiban.AddProductActivity"
             android:exported="false" />
         <activity
             android:name=".dangsanpham.tranggiaodienbanhang"
@@ -82,7 +82,7 @@
             android:name=".dangsanpham.Uploadproduct"
             android:exported="false" />
         <activity
-            android:name=".dangkygmail"
+            android:name=".SignUpEmailActivity"
             android:exported="false" />
         <activity
             android:name=".trangchunguoidung"
@@ -103,22 +103,22 @@
             android:name=".profileuser"
             android:exported="false" />
         <activity
-            android:name=".dangnhap"
+            android:name=".LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".dangky"
+            android:name=".SignUpActivity"
             android:exported="false" />
         <activity
             android:name=".Profile"
             android:exported="false" />
         <activity
-            android:name=".ChangeProfile"
+            android:name=".ChangeProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".quenmatkhau"
+            android:name=".ForgetPasswordActivity"
             android:exported="false" />
         <activity
-            android:name=".dangkynguoiban.manhinhnguoiban"
+            android:name=".dangkynguoiban.SellerActivity"
             android:exported="false">
 
         </activity>

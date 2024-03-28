@@ -1,4 +1,4 @@
-package com.example.doanmobile.hoadon;
+package com.example.doanmobile.Order;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,7 +12,6 @@ import android.widget.ImageButton;
 
 import com.example.doanmobile.R;
 import com.example.doanmobile.dangsanpham.ItemSpacingDecoration;
-import com.example.doanmobile.danhgiasanpham.Review;
 import com.example.doanmobile.trangchunguoidung;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -28,7 +27,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class xemhoadonuser extends AppCompatActivity {
+public class UserOrderActivity extends AppCompatActivity {
 
     ImageButton closeorderuser;
     RecyclerView recyclerViewOrderuser;
@@ -49,7 +48,7 @@ public class xemhoadonuser extends AppCompatActivity {
         closeorderuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(xemhoadonuser.this, trangchunguoidung.class);
+                Intent intent = new Intent(UserOrderActivity.this, trangchunguoidung.class);
                 startActivity(intent);
             }
         });

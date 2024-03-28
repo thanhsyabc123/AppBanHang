@@ -1,4 +1,4 @@
-package com.example.doanmobile.hoadon;
+package com.example.doanmobile.Order;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -20,24 +20,24 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.util.List;
 
-public class OrderdetailAdapter extends RecyclerView.Adapter<OrderdetailAdapter.ViewHolder> {
+public class OrderDetailAdapter extends RecyclerView.Adapter<OrderDetailAdapter.ViewHolder> {
     private Context context;
     private List<OrderDetail> orderDetailList;
 
-    public OrderdetailAdapter (Context context,List<OrderDetail> orderDetailList)
+    public OrderDetailAdapter(Context context, List<OrderDetail> orderDetailList)
     {
         this.context = context;
         this.orderDetailList = orderDetailList;
     }
     @NonNull
     @Override
-    public OrderdetailAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public OrderDetailAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.orderdetailid, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull OrderdetailAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull OrderDetailAdapter.ViewHolder holder, int position) {
 
         OrderDetail orderDetail = orderDetailList.get(position);
         holder.quantitydetailorder.setText(String.valueOf(orderDetail.getSoLuong()));

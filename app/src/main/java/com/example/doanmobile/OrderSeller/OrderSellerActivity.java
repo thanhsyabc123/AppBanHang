@@ -1,4 +1,4 @@
-package com.example.doanmobile.hoadonnguoiban;
+package com.example.doanmobile.OrderSeller;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -13,8 +13,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
-import com.example.doanmobile.hoadon.OrderDetail;
+import com.example.doanmobile.dangkynguoiban.SellerActivity;
+import com.example.doanmobile.Order.OrderDetail;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -28,11 +28,11 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class hoadonnguoiban extends AppCompatActivity {
+public class OrderSellerActivity extends AppCompatActivity {
 
     RecyclerView recyclerViewOrdershop;
     List<OrderDetail> hoadonshopdetailList;
-    hoadonnguoibanAdapter hoadonshopdetailadapter;
+    OrderSellerAdapter hoadonshopdetailadapter;
     ImageButton closeordershopne;
     FirebaseFirestore db;
     TextView tongtienhoadon;
@@ -49,7 +49,7 @@ public class hoadonnguoiban extends AppCompatActivity {
         closeordershopne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(hoadonnguoiban.this, manhinhnguoiban.class);
+                Intent intent = new Intent(OrderSellerActivity.this, SellerActivity.class);
                 startActivity(intent);
             }
         });
@@ -57,7 +57,7 @@ public class hoadonnguoiban extends AppCompatActivity {
 
         recyclerViewOrdershop = findViewById(R.id.recyclerViewOrdershop);
         hoadonshopdetailList = new ArrayList<>();
-        hoadonshopdetailadapter = new hoadonnguoibanAdapter(this, hoadonshopdetailList);
+        hoadonshopdetailadapter = new OrderSellerAdapter(this, hoadonshopdetailList);
         recyclerViewOrdershop.setAdapter(hoadonshopdetailadapter);
         recyclerViewOrdershop.setLayoutManager(new LinearLayoutManager(this));
         db = FirebaseFirestore.getInstance();

@@ -1,33 +1,24 @@
 package com.example.doanmobile;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanmobile.dangsanpham.tranggiaodienbanhang;
-import com.example.doanmobile.hoadon.xemhoadonuser;
-import com.example.doanmobile.yeuthichsanpham.yeuthichsanpham;
-import com.google.android.gms.tasks.OnFailureListener;
+import com.example.doanmobile.Order.UserOrderActivity;
+import com.example.doanmobile.Favorite.FavoriteActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class trangchunguoidung extends AppCompatActivity {
 
@@ -74,10 +65,10 @@ public class trangchunguoidung extends AppCompatActivity {
             public void onClick(View view) {
                 if (user == null) {
                     Toast.makeText(trangchunguoidung.this, "Yêu cầu đăng nhập", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(trangchunguoidung.this, dangnhap.class);
+                    Intent intent = new Intent(trangchunguoidung.this, LoginActivity.class);
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(trangchunguoidung.this, xemhoadonuser.class);
+                    Intent intent = new Intent(trangchunguoidung.this, UserOrderActivity.class);
                     startActivity(intent);
                 }
             }
@@ -87,10 +78,10 @@ public class trangchunguoidung extends AppCompatActivity {
             public void onClick(View view) {
                 if (user == null) {
                     Toast.makeText(trangchunguoidung.this, "Yêu cầu đăng nhập", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(trangchunguoidung.this, dangnhap.class);
+                    Intent intent = new Intent(trangchunguoidung.this, LoginActivity.class);
                     startActivity(intent);
                 } else {
-                    Intent intent = new Intent(trangchunguoidung.this, yeuthichsanpham.class);
+                    Intent intent = new Intent(trangchunguoidung.this, FavoriteActivity.class);
                     startActivity(intent);
                 }
             }
@@ -111,7 +102,7 @@ public class trangchunguoidung extends AppCompatActivity {
             public void onClick(View view) {
                 if (user == null) {
                     Toast.makeText(trangchunguoidung.this, "Yêu cầu đăng nhập", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(trangchunguoidung.this, dangnhap.class);
+                    Intent intent = new Intent(trangchunguoidung.this, LoginActivity.class);
                     startActivity(intent);
                 } else {
                     Intent intent = new Intent(trangchunguoidung.this, profileuser.class);

@@ -1,4 +1,4 @@
-package com.example.doanmobile.yeuthichsanpham;
+package com.example.doanmobile.Favorite;
 
 public class Favorites {
     private int favoriteID;

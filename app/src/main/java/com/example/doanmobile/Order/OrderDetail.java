@@ -1,4 +1,4 @@
-package com.example.doanmobile.hoadon;
+package com.example.doanmobile.Order;
 
 public class OrderDetail {
     private static int nextorderdetailID = 1;

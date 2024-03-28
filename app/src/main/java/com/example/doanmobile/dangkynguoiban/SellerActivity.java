@@ -10,8 +10,8 @@ import android.widget.TextView;
 import com.example.doanmobile.DanhGiaSPcuaShop.XemDanhGiaCuaShop;
 import com.example.doanmobile.R;
 import com.example.doanmobile.chat.UserChatWithShopActivity;
-import com.example.doanmobile.dangnhap;
-import com.example.doanmobile.hoadonnguoiban.hoadonnguoiban;
+import com.example.doanmobile.LoginActivity;
+import com.example.doanmobile.OrderSeller.OrderSellerActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,7 +19,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class manhinhnguoiban extends AppCompatActivity {
+public class SellerActivity extends AppCompatActivity {
 
     TextView tencuahangshop;
     FirebaseFirestore db;
@@ -41,7 +41,7 @@ public class manhinhnguoiban extends AppCompatActivity {
         Xemdanhgia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(manhinhnguoiban.this, XemDanhGiaCuaShop.class);
+                Intent intent = new Intent(SellerActivity.this, XemDanhGiaCuaShop.class);
                 startActivity(intent);
             }
         });
@@ -63,7 +63,7 @@ public class manhinhnguoiban extends AppCompatActivity {
                         quanlyhoadoncuahang.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Intent intent = new Intent(manhinhnguoiban.this, hoadonnguoiban.class);
+                                Intent intent = new Intent(SellerActivity.this, OrderSellerActivity.class);
                                 intent.putExtra("shopID", shopID);
                                 startActivity(intent);
                             }
@@ -78,14 +78,14 @@ public class manhinhnguoiban extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(manhinhnguoiban.this, UserChatWithShopActivity.class);
+                Intent intent = new Intent(SellerActivity.this, UserChatWithShopActivity.class);
                 startActivity(intent);
             }
         });
         quanlysanphamcuahang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(manhinhnguoiban.this, quanlysanphamthemsanpham.class);
+                Intent intent = new Intent(SellerActivity.this, AddProductActivity.class);
                 startActivity(intent);
             }
         });
@@ -95,7 +95,7 @@ public class manhinhnguoiban extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), dangnhap.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 finish();
             }
         });

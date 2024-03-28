@@ -21,7 +21,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class dangkygmail extends AppCompatActivity {
+public class SignUpEmailActivity extends AppCompatActivity {
 
     EditText Tendaydugmail,Sodienthoaigmail;
     ImageButton BtnDangKiTaiKhoangmail;
@@ -54,23 +54,23 @@ public class dangkygmail extends AppCompatActivity {
                                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                                     @Override
                                     public void onSuccess(Void aVoid) {
-                                        Toast.makeText(dangkygmail.this, "Thông tin đã được lưu vào Firestore", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(SignUpEmailActivity.this, "Thông tin đã được lưu vào Firestore", Toast.LENGTH_SHORT).show();
                                         // (Optional) Nếu cần, thực hiện các bước tiếp theo sau khi lưu thông tin
-                                        Intent intent = new Intent(dangkygmail.this,dangnhap.class);
+                                        Intent intent = new Intent(SignUpEmailActivity.this, LoginActivity.class);
                                         startActivity(intent);
                                     }
                                 })
                                 .addOnFailureListener(new OnFailureListener() {
                                     @Override
                                     public void onFailure(@NonNull Exception e) {
-                                        Toast.makeText(dangkygmail.this, "Lỗi khi lưu thông tin vào Firestore", Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(SignUpEmailActivity.this, "Lỗi khi lưu thông tin vào Firestore", Toast.LENGTH_SHORT).show();
                                     }
                                 });
                     } else {
-                        Toast.makeText(dangkygmail.this, "Người dùng chưa đăng nhập", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(SignUpEmailActivity.this, "Người dùng chưa đăng nhập", Toast.LENGTH_SHORT).show();
                     }
                 } else {
-                    Toast.makeText(dangkygmail.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpEmailActivity.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                 }
             }
         });

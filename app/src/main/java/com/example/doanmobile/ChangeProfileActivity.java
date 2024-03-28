@@ -19,7 +19,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ChangeProfile extends AppCompatActivity {
+public class ChangeProfileActivity extends AppCompatActivity {
     EditText edtHoten,edtEmail,edtpass,edtsdt;
     Button btnChangeProfile;
     FirebaseAuth fAuth = FirebaseAuth.getInstance();
@@ -45,7 +45,7 @@ public class ChangeProfile extends AppCompatActivity {
         btnBackprofile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent =new Intent(ChangeProfile.this,Profile.class);
+                Intent intent =new Intent(ChangeProfileActivity.this,Profile.class);
                 startActivity(intent);
             }
         });
@@ -97,7 +97,7 @@ public class ChangeProfile extends AppCompatActivity {
                     @Override
                     public void onSuccess(Void unused) {
 
-                        Intent intent = new Intent(ChangeProfile.this, profileuser.class);
+                        Intent intent = new Intent(ChangeProfileActivity.this, profileuser.class);
                         startActivity(intent);
                     }
                 });

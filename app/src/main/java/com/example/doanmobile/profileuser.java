@@ -12,8 +12,8 @@ import android.widget.TextView;
 import com.example.doanmobile.chat.ChatHistoryActivity;
 import com.example.doanmobile.dangkynguoiban.RegisterSellerActivity;
 import com.example.doanmobile.danhgiasanpham.trangxemdanhgianguoidung;
-import com.example.doanmobile.hoadon.xemhoadonuser;
-import com.example.doanmobile.yeuthichsanpham.yeuthichsanpham;
+import com.example.doanmobile.Order.UserOrderActivity;
+import com.example.doanmobile.Favorite.FavoriteActivity;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -39,14 +39,14 @@ public class profileuser extends AppCompatActivity {
         xemyeuthichsanphampf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(profileuser.this, yeuthichsanpham.class);
+                Intent intent = new Intent(profileuser.this, FavoriteActivity.class);
                 startActivity(intent);
             }
         });
         xemhoadonpf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(profileuser.this, xemhoadonuser.class);
+                Intent intent = new Intent(profileuser.this, UserOrderActivity.class);
                 startActivity(intent);
             }
         });
@@ -105,7 +105,7 @@ public class profileuser extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), dangnhap.class));
+                startActivity(new Intent(getApplicationContext(), LoginActivity.class));
                 finish();
             }
         });

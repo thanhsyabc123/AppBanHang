@@ -3,12 +3,10 @@ package com.example.doanmobile;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.Window;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
@@ -16,7 +14,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
+import com.example.doanmobile.dangkynguoiban.SellerActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -38,7 +36,7 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class dangky extends AppCompatActivity {
+public class SignUpActivity extends AppCompatActivity {
 
     EditText Tendaydu, Sodienthoai, Email, Matkhau;
     ImageButton btnDangKiTaiKhoan;
@@ -93,7 +91,7 @@ public class dangky extends AppCompatActivity {
         chuyensangdangnhap.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(dangky.this, dangnhap.class);
+                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
@@ -116,17 +114,17 @@ public class dangky extends AppCompatActivity {
 
 
                 if (!(dangkynguoidung.isChecked())){
-                    Toast.makeText(dangky.this,"Vui lòng nhấn đồng ý",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this,"Vui lòng nhấn đồng ý",Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if (tenDayDu.isEmpty() || soDienThoai.isEmpty() || email.isEmpty() || matKhau.isEmpty()) {
-                    Toast.makeText(dangky.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignUpActivity.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 mAuth.createUserWithEmailAndPassword(email, matKhau)
-                        .addOnCompleteListener(dangky.this, new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
@@ -138,7 +136,7 @@ public class dangky extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                                             if (documentSnapshot.exists()) {
-                                                Toast.makeText(dangky.this, "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(SignUpActivity.this, "Tài khoản đã tồn tại", Toast.LENGTH_SHORT).show();
                                             } else {
                                                 db.collection("KhachHang")
                                                         .orderBy("userID", Query.Direction.DESCENDING)
@@ -163,15 +161,15 @@ public class dangky extends AppCompatActivity {
                                                                         .addOnSuccessListener(new OnSuccessListener<Void>() {
                                                                             @Override
                                                                             public void onSuccess(Void aVoid) {
-                                                                                Toast.makeText(dangky.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
+                                                                                Toast.makeText(SignUpActivity.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                                                                                 if (khachHang.isKhachHang()) {
-                                                                                    Intent intent = new Intent(dangky.this,trangchunguoidung.class);
+                                                                                    Intent intent = new Intent(SignUpActivity.this,trangchunguoidung.class);
                                                                                     startActivity(intent);
                                                                                 } else if (khachHang.isNguoiBan()) {
-                                                                                    Intent intent = new Intent(dangky.this, manhinhnguoiban.class);
+                                                                                    Intent intent = new Intent(SignUpActivity.this, SellerActivity.class);
                                                                                     startActivity(intent);
                                                                                 } else if (khachHang.isNguoiBanVip()) {
-                                                                                    Intent intent = new Intent(dangky.this, manhinhnguoiban.class); // Chuyển hướng đến giao diện B hoặc giao diện khác cho người bán VIP
+                                                                                    Intent intent = new Intent(SignUpActivity.this, SellerActivity.class); // Chuyển hướng đến giao diện B hoặc giao diện khác cho người bán VIP
                                                                                     startActivity(intent);
                                                                                 }
                                                                                 finish();
@@ -180,7 +178,7 @@ public class dangky extends AppCompatActivity {
                                                                         .addOnFailureListener(new OnFailureListener() {
                                                                             @Override
                                                                             public void onFailure(@NonNull Exception e) {
-                                                                                Toast.makeText(dangky.this, "Lỗi khi đăng ký", Toast.LENGTH_SHORT).show();
+                                                                                Toast.makeText(SignUpActivity.this, "Lỗi khi đăng ký", Toast.LENGTH_SHORT).show();
                                                                             }
                                                                         });
                                                             }
@@ -189,7 +187,7 @@ public class dangky extends AppCompatActivity {
                                         }
                                     });
                                 } else {
-                                    Toast.makeText(dangky.this, "Lỗi khi đăng ký: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(SignUpActivity.this, "Lỗi khi đăng ký: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
@@ -211,12 +209,12 @@ public class dangky extends AppCompatActivity {
                             // Đăng nhập thành công
                             FirebaseUser user = mAuth.getCurrentUser();
                             // Tiếp tục xử lý tại đây (nếu cần)
-                            Intent intent = new Intent(dangky.this, dangkygmail.class);
+                            Intent intent = new Intent(SignUpActivity.this, SignUpEmailActivity.class);
                             startActivity(intent);
                         } else {
                             // Đăng nhập thất bại
                             Log.d(TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(dangky.this, "Đăng nhập thất bại.",
+                            Toast.makeText(SignUpActivity.this, "Đăng nhập thất bại.",
                                     Toast.LENGTH_SHORT).show();
                         }
                     }

@@ -20,8 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangnhap;
-import com.example.doanmobile.yeuthichsanpham.Favorites;
+import com.example.doanmobile.LoginActivity;
+import com.example.doanmobile.Favorite.Favorites;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -112,7 +112,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductHolder> {
                 }
                 else{
                     Toast.makeText(context, "Yêu cầu đăng nhập", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(context, dangnhap.class);
+                    Intent intent = new Intent(context, LoginActivity.class);
                     context.startActivity(intent);
                 }
             }
@@ -140,7 +140,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductHolder> {
                     context.startActivity(intent);}
                 else{
                     Toast.makeText(context, "Yêu cầu đăng nhập", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(context, dangnhap.class);
+                    Intent intent = new Intent(context, LoginActivity.class);
                     context.startActivity(intent);
                 }
             }

@@ -1,4 +1,4 @@
-package com.example.doanmobile.giohang;
+package com.example.doanmobile.Cart;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,12 +15,12 @@ import com.example.doanmobile.dangsanpham.CartAdapter;
 import com.example.doanmobile.dangsanpham.CartItem;
 import com.example.doanmobile.dangsanpham.CartManager;
 import com.example.doanmobile.dangsanpham.tranggiaodienbanhang;
-import com.example.doanmobile.hoadon.trangthanhtoanhoadon;
+import com.example.doanmobile.Order.PaymentActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GioHangActivity extends AppCompatActivity {
+public class CartActivity extends AppCompatActivity {
     private ListView listView;
     private TextView totalTextView;
     private CartAdapter cartAdapter;
@@ -51,7 +51,7 @@ public class GioHangActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GioHangActivity.this,tranggiaodienbanhang.class);
+                Intent intent = new Intent(CartActivity.this,tranggiaodienbanhang.class);
                 startActivity(intent);
             }
         });
@@ -59,7 +59,7 @@ public class GioHangActivity extends AppCompatActivity {
         thanhtoangiohang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(GioHangActivity.this, trangthanhtoanhoadon.class);
+                Intent intent = new Intent(CartActivity.this, PaymentActivity.class);
                 intent.putParcelableArrayListExtra("cartItems", new ArrayList<>(cartItems));
                 startActivity(intent);
             }

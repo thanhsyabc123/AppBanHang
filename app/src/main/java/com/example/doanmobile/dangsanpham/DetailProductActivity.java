@@ -21,7 +21,7 @@ import com.example.doanmobile.chat.ChatActivity;
 import com.example.doanmobile.coicuahangshopdetail.ShopDetailActivity;
 import com.example.doanmobile.danhgiasanpham.ReViewAdapter;
 import com.example.doanmobile.danhgiasanpham.Review;
-import com.example.doanmobile.giohang.GioHangActivity;
+import com.example.doanmobile.Cart.CartActivity;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
@@ -246,7 +246,7 @@ public class DetailProductActivity extends AppCompatActivity {
         detailgiohang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(DetailProductActivity.this, GioHangActivity.class);
+                Intent intent = new Intent(DetailProductActivity.this, CartActivity.class);
                 startActivity(intent);
             }
         });

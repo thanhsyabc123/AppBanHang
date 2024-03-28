@@ -1,4 +1,4 @@
-package com.example.doanmobile.hoadon;
+package com.example.doanmobile.Order;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
@@ -15,7 +15,6 @@ import android.widget.ImageView;
 
 import com.example.doanmobile.R;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -23,12 +22,12 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class xemchitiethoadon extends AppCompatActivity {
+public class OrderDetailActivity extends AppCompatActivity {
 
     RecyclerView recyclerViewOrdechitietruser;
     ImageView backnguoiorderchitiet;
     List<OrderDetail> orderDetailList;
-    OrderdetailAdapter orderdetailAdapter;
+    OrderDetailAdapter orderdetailAdapter;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -41,13 +40,13 @@ public class xemchitiethoadon extends AppCompatActivity {
         backnguoiorderchitiet.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(xemchitiethoadon.this, xemhoadonuser.class);
+                Intent intent = new Intent(OrderDetailActivity.this, UserOrderActivity.class);
                 startActivity(intent);
             }
         });
 
         orderDetailList = new ArrayList<>();
-        orderdetailAdapter = new OrderdetailAdapter(this, orderDetailList);
+        orderdetailAdapter = new OrderDetailAdapter(this, orderDetailList);
         recyclerViewOrdechitietruser.setAdapter(orderdetailAdapter);
         recyclerViewOrdechitietruser.setLayoutManager(new LinearLayoutManager(this));
 

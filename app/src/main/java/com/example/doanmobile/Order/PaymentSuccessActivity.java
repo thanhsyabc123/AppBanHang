@@ -1,4 +1,4 @@
-package com.example.doanmobile.hoadon;
+package com.example.doanmobile.Order;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +9,6 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RatingBar;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.doanmobile.R;
@@ -25,7 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-public class thanhtoanthanhcong extends AppCompatActivity {
+public class PaymentSuccessActivity extends AppCompatActivity {
 
     RatingBar  ratingBar;
     EditText  delaidanhgia;
@@ -50,7 +49,7 @@ public class thanhtoanthanhcong extends AppCompatActivity {
         vetrangchudanhgia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(thanhtoanthanhcong.this, trangchunguoidung.class);
+                Intent intent = new Intent(PaymentSuccessActivity.this, trangchunguoidung.class);
                 startActivity(intent);
             }
         });
@@ -59,7 +58,7 @@ public class thanhtoanthanhcong extends AppCompatActivity {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float v, boolean b) {
                 myRating = v;
-                Toast.makeText(thanhtoanthanhcong.this, "lựa chọn số sao " + myRating, Toast.LENGTH_SHORT).show();
+                Toast.makeText(PaymentSuccessActivity.this, "lựa chọn số sao " + myRating, Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -145,8 +144,8 @@ public class thanhtoanthanhcong extends AppCompatActivity {
                                                                         .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                                             @Override
                                                                             public void onSuccess(DocumentReference documentReference) {
-                                                                                Toast.makeText(thanhtoanthanhcong.this, "Đánh giá đã được lưu thành công!", Toast.LENGTH_SHORT).show();
-                                                                                Intent intent1 = new Intent(thanhtoanthanhcong.this,trangchunguoidung.class);
+                                                                                Toast.makeText(PaymentSuccessActivity.this, "Đánh giá đã được lưu thành công!", Toast.LENGTH_SHORT).show();
+                                                                                Intent intent1 = new Intent(PaymentSuccessActivity.this,trangchunguoidung.class);
                                                                                 startActivity(intent1);
                                                                             }
                                                                         })
@@ -154,7 +153,7 @@ public class thanhtoanthanhcong extends AppCompatActivity {
                                                                             @Override
                                                                             public void onFailure(@NonNull Exception e) {
                                                                                 Log.w("TAG", "Lỗi khi lưu đánh giá vào Firestore", e);
-                                                                                Toast.makeText(thanhtoanthanhcong.this, "Có lỗi xảy ra khi lưu đánh giá. Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
+                                                                                Toast.makeText(PaymentSuccessActivity.this, "Có lỗi xảy ra khi lưu đánh giá. Vui lòng thử lại sau!", Toast.LENGTH_SHORT).show();
                                                                             }
                                                                         });
                                                             }

@@ -1,9 +1,8 @@
-package com.example.doanmobile.yeuthichsanpham;
+package com.example.doanmobile.Favorite;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
@@ -27,7 +26,7 @@ import com.google.firebase.firestore.QuerySnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-public class yeuthichsanpham extends AppCompatActivity {
+public class FavoriteActivity extends AppCompatActivity {
 
     ImageButton closefvr;
     private FavoriteAdapter favoriteAdapter;
@@ -52,7 +51,7 @@ public class yeuthichsanpham extends AppCompatActivity {
         closefvr.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(yeuthichsanpham.this, tranggiaodienbanhang.class);
+                Intent intent = new Intent(FavoriteActivity.this, tranggiaodienbanhang.class);
                 startActivity(intent);
             }
         });

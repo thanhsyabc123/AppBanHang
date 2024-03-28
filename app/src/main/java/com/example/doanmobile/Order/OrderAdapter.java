@@ -1,4 +1,4 @@
-package com.example.doanmobile.hoadon;
+package com.example.doanmobile.Order;
 
 import android.content.Context;
 import android.content.Intent;
@@ -65,7 +65,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         holder.ordercardnhe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(context,xemchitiethoadon.class);
+                Intent intent = new Intent(context, OrderDetailActivity.class);
                 intent.putExtra("orderID",order.getOrderID());
                 intent.putExtra("userID",order.getUserID());
                 context.startActivity(intent);

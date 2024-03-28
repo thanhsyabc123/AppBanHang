@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
+import com.example.doanmobile.dangkynguoiban.SellerActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -39,7 +39,7 @@ public class UserChatWithShopActivity extends AppCompatActivity {
         quaylaitinnhanthongtincanhannguoiban.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(UserChatWithShopActivity.this, manhinhnguoiban.class);
+                Intent intent = new Intent(UserChatWithShopActivity.this, SellerActivity.class);
                 startActivity(intent);
             }
         });

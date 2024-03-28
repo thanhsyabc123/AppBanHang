@@ -1,4 +1,4 @@
-package com.example.doanmobile.hoadon;
+package com.example.doanmobile.Order;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -35,21 +34,14 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.UUID;
 
 import vn.momo.momo_partner.AppMoMoLib;
-import vn.momo.momo_partner.MoMoParameterNamePayment;
 
-public class trangthanhtoanhoadon extends AppCompatActivity {
+public class PaymentActivity extends AppCompatActivity {
     private List<CartItem> cartItems;
     ImageView quaylaidondathang;
     TextView soluongsanphamhoadon,tongtinehoadon,tenhoadon,sodienthoaihoadon,ngaydathanghoadon;
@@ -85,7 +77,7 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
         quaylaidondathang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(trangthanhtoanhoadon.this, tranggiaodienbanhang.class);
+                Intent intent = new Intent(PaymentActivity.this, tranggiaodienbanhang.class);
                 startActivity(intent);
             }
         });
@@ -159,7 +151,7 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
                 String diaChi = diachihoadon.getText().toString();
 
                 if (diaChi.isEmpty()) {
-                    Toast.makeText(trangthanhtoanhoadon.this, "Vui lòng nhập địa chỉ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PaymentActivity.this, "Vui lòng nhập địa chỉ", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -171,12 +163,12 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
 
                 if (thanhtoantienmathoadon.isChecked()) {
                     htThanhToan = "Tiền mặt";
-                    paymentMethodFactory = new CashPaymentFactory(trangthanhtoanhoadon.this);
+                    paymentMethodFactory = new CashPaymentFactory(PaymentActivity.this);
                 } else if (thanhtoanhoadonmomo.isChecked()) {
                     htThanhToan = "Momo";
-                    paymentMethodFactory = new MomoPaymentFactory(trangthanhtoanhoadon.this);
+                    paymentMethodFactory = new MomoPaymentFactory(PaymentActivity.this);
                 } else {
-                    Toast.makeText(trangthanhtoanhoadon.this, "Phải chọn hình thức thanh toán", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PaymentActivity.this, "Phải chọn hình thức thanh toán", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
@@ -330,7 +322,7 @@ public class trangthanhtoanhoadon extends AppCompatActivity {
             if(data != null) {
 
                 if(data.getIntExtra("status", -1) == 0) {
-                    Intent intent = new Intent(trangthanhtoanhoadon.this, thanhtoanthanhcong.class);
+                    Intent intent = new Intent(PaymentActivity.this, PaymentSuccessActivity.class);
                     intent.putExtra("orderId", neworderId);
                     intent.putExtra("detailId", currentDetailID);
                     startActivity(intent);

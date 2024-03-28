@@ -1,4 +1,4 @@
-package com.example.doanmobile.hoadonnguoiban;
+package com.example.doanmobile.OrderSeller;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doanmobile.KhachHang;
 import com.example.doanmobile.R;
-import com.example.doanmobile.hoadon.Order;
+import com.example.doanmobile.Order.Order;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
@@ -20,20 +20,20 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
-public class shophienthiAdapter extends RecyclerView.Adapter<shophienthiAdapter.ViewHolder> {
+public class ShowShopAdapter extends RecyclerView.Adapter<ShowShopAdapter.ViewHolder> {
 
     private Context context;
 
     private List<Order> orderList;
 
-    public shophienthiAdapter(Context context, List<Order> hoadonkhdetailList) {
+    public ShowShopAdapter(Context context, List<Order> hoadonkhdetailList) {
         this.context = context;
         this.orderList = hoadonkhdetailList;
     }
 
     @NonNull
     @Override
-    public shophienthiAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ShowShopAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.orderitem, parent, false);
         return new ViewHolder(view);
     }
