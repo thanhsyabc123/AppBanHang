@@ -7,7 +7,6 @@ import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.EditText;
@@ -15,25 +14,21 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
+import com.example.doanmobile.ShopRegister.ShopActivity;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
-import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class dangnhap extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     EditText Emaildangnhap,Matkhaudangnhap;
     View btnDangNhap;
@@ -51,7 +46,7 @@ public class dangnhap extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dangnhap);
 
-        dialog = new Dialog(dangnhap.this);
+        dialog = new Dialog(Login.this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_wait);
         dialog.setCanceledOnTouchOutside(false);
@@ -82,7 +77,7 @@ public class dangnhap extends AppCompatActivity {
         quenmatkhau.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(dangnhap.this,com.example.doanmobile.quenmatkhau.class);
+                Intent intent = new Intent(Login.this,com.example.doanmobile.quenmatkhau.class);
                 startActivity(intent);
             }
         });
@@ -90,7 +85,7 @@ public class dangnhap extends AppCompatActivity {
         chuyensangdangkytaikhoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(dangnhap.this, dangky.class);
+                Intent intent = new Intent(Login.this, Register.class);
                 startActivity(intent);
             }
         });
@@ -103,12 +98,12 @@ public class dangnhap extends AppCompatActivity {
 
                 // Kiểm tra tính hợp lệ của dữ liệu
                 if (email.isEmpty() || matKhau.isEmpty()) {
-                    Toast.makeText(dangnhap.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Login.this, "Vui lòng điền đầy đủ thông tin", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 mAuth.signInWithEmailAndPassword(email, matKhau)
-                        .addOnCompleteListener(dangnhap.this, new OnCompleteListener<AuthResult>() {
+                        .addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
@@ -122,29 +117,29 @@ public class dangnhap extends AppCompatActivity {
                                         @Override
                                         public void onSuccess(DocumentSnapshot documentSnapshot) {
                                             if (documentSnapshot.exists()) {
-                                                KhachHang khachHang = documentSnapshot.toObject(KhachHang.class);
+                                                Customer_Model customerModel = documentSnapshot.toObject(Customer_Model.class);
 
-                                                if (khachHang != null) {
-                                                    if (khachHang.isKhachHang()) {
-                                                        Intent intent = new Intent(dangnhap.this, trangchunguoidung.class);
+                                                if (customerModel != null) {
+                                                    if (customerModel.isKhachHang()) {
+                                                        Intent intent = new Intent(Login.this, trangchunguoidung.class);
                                                         startActivity(intent);
-                                                    } else if (khachHang.isNguoiBan()) {
-                                                        Intent intent = new Intent(dangnhap.this, manhinhnguoiban.class);
+                                                    } else if (customerModel.isNguoiBan()) {
+                                                        Intent intent = new Intent(Login.this, ShopActivity.class);
                                                         startActivity(intent);
-                                                    } else if (khachHang.isNguoiBanVip()) {
-                                                        Intent intent = new Intent(dangnhap.this, manhinhnguoiban.class);
+                                                    } else if (customerModel.isNguoiBanVip()) {
+                                                        Intent intent = new Intent(Login.this, ShopActivity.class);
                                                         startActivity(intent);
                                                     }
 
                                                     finish();
                                                 }
                                             } else {
-                                                Toast.makeText(dangnhap.this, "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(Login.this, "Tài khoản không tồn tại", Toast.LENGTH_SHORT).show();
                                             }
                                         }
                                     });
                                 } else {
-                                    Toast.makeText(dangnhap.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(Login.this, "Đăng nhập thất bại", Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });

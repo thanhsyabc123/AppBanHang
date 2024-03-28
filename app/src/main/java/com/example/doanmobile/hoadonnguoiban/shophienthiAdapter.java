@@ -9,7 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.doanmobile.KhachHang;
+import com.example.doanmobile.Customer_Model;
 import com.example.doanmobile.R;
 import com.example.doanmobile.hoadon.Order;
 import com.google.firebase.firestore.CollectionReference;
@@ -53,8 +53,8 @@ public class shophienthiAdapter extends RecyclerView.Adapter<shophienthiAdapter.
         shopQuery1.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 for (QueryDocumentSnapshot document : task.getResult()) {
-                    KhachHang khachHang = document.toObject(KhachHang.class);
-                    holder. tennguoimuaorder.setText(khachHang.getTenDayDu());
+                    Customer_Model customerModel = document.toObject(Customer_Model.class);
+                    holder. tennguoimuaorder.setText(customerModel.getTenDayDu());
                 }
             } else {
                 // Xử lý trường hợp không thành công

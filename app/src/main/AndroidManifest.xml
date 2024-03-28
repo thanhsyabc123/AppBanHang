@@ -65,7 +65,7 @@
             android:name=".giohang.GioHangActivity"
             android:exported="false" />
         <activity
-            android:name=".coicuahangshopdetail.cuahangshopdetail"
+            android:name=".ShopDetail.ShopDetail_Activity"
             android:exported="false" />
         <activity
             android:name=".yeuthichsanpham.yeuthichsanpham"
@@ -101,19 +101,19 @@
             android:name=".chainofres.dangnhap"
             android:exported="false" />
         <activity
-            android:name=".dangkynguoiban.dangkythanhcongthuong"
+            android:name=".ShopRegister.ShopRegister_Success_Activity"
             android:exported="false" />
         <activity
-            android:name=".dangkynguoiban.dangkylenguoiban"
+            android:name=".ShopRegister.ShopRegister_Activity"
             android:exported="false" />
         <activity
             android:name=".profileuser"
             android:exported="false" />
         <activity
-            android:name=".dangnhap"
+            android:name=".Login"
             android:exported="true" />
         <activity
-            android:name=".dangky"
+            android:name=".Register"
             android:exported="false" />
         <activity
             android:name=".Profile"
@@ -125,7 +125,7 @@
             android:name=".quenmatkhau"
             android:exported="false" />
         <activity
-            android:name=".dangkynguoiban.manhinhnguoiban"
+            android:name=".ShopRegister.ShopActivity"
             android:exported="false" />
     </application>
 

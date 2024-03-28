@@ -12,10 +12,8 @@ import android.view.View;
 import android.widget.ImageButton;
 
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangkynguoiban.Shop;
-import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
+import com.example.doanmobile.ShopRegister.ShopActivity;
 import com.example.doanmobile.dangsanpham.ItemSpacingDecoration;
-import com.example.doanmobile.dangsanpham.Products;
 import com.example.doanmobile.danhgiasanpham.ReViewAdapter;
 import com.example.doanmobile.danhgiasanpham.Review;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,11 +21,9 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
@@ -50,7 +46,7 @@ public class XemDanhGiaCuaShop extends AppCompatActivity {
         closeReviewShop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(XemDanhGiaCuaShop.this, manhinhnguoiban.class);
+                Intent intent=new Intent(XemDanhGiaCuaShop.this, ShopActivity.class);
                 startActivity(intent);
             }
         });

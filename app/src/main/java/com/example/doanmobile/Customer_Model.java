@@ -1,6 +1,6 @@
 package com.example.doanmobile;
 
-public class KhachHang {
+public class Customer_Model {
 
     private int userID;
     private String matKhau;
@@ -12,11 +12,11 @@ public class KhachHang {
     private boolean isNguoiBanVip;
 
     // Constructors
-    public KhachHang() {} // Thêm constructor mặc định
+    public Customer_Model() {} // Thêm constructor mặc định
 
 
-    public KhachHang(int userID, String matKhau, String email, String tenDayDu, String soDienThoai,
-                     boolean isKhachHang, boolean isNguoiBan, boolean isNguoiBanVip) {
+    public Customer_Model(int userID, String matKhau, String email, String tenDayDu, String soDienThoai,
+                          boolean isKhachHang, boolean isNguoiBan, boolean isNguoiBanVip) {
         this.userID = userID;
         this.matKhau = matKhau;
         this.email = email;

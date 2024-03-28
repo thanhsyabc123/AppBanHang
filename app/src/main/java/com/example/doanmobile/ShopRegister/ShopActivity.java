@@ -1,4 +1,4 @@
-package com.example.doanmobile.dangkynguoiban;
+package com.example.doanmobile.ShopRegister;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,7 @@ import com.example.doanmobile.decorator.Admin_Product_DecoratorActivity;
 import com.example.doanmobile.DanhGiaSPcuaShop.XemDanhGiaCuaShop;
 import com.example.doanmobile.R;
 import com.example.doanmobile.chat.NguoidungvoiShopActivity;
-import com.example.doanmobile.dangnhap;
+import com.example.doanmobile.Login;
 import com.example.doanmobile.hoadonnguoiban.hoadonnguoiban;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -20,7 +20,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class manhinhnguoiban extends AppCompatActivity {
+public class ShopActivity extends AppCompatActivity {
 
     TextView tencuahangshop;
     FirebaseFirestore db;
@@ -42,7 +42,7 @@ public class manhinhnguoiban extends AppCompatActivity {
         Xemdanhgia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(manhinhnguoiban.this, XemDanhGiaCuaShop.class);
+                Intent intent = new Intent(ShopActivity.this, XemDanhGiaCuaShop.class);
                 startActivity(intent);
             }
         });
@@ -64,7 +64,7 @@ public class manhinhnguoiban extends AppCompatActivity {
                         quanlyhoadoncuahang.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Intent intent = new Intent(manhinhnguoiban.this, hoadonnguoiban.class);
+                                Intent intent = new Intent(ShopActivity.this, hoadonnguoiban.class);
                                 intent.putExtra("shopID", shopID);
                                 startActivity(intent);
                             }
@@ -79,14 +79,14 @@ public class manhinhnguoiban extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(manhinhnguoiban.this, NguoidungvoiShopActivity.class);
+                Intent intent = new Intent(ShopActivity.this, NguoidungvoiShopActivity.class);
                 startActivity(intent);
             }
         });
         quanlysanphamcuahang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(manhinhnguoiban.this, Admin_Product_DecoratorActivity.class);
+                Intent intent = new Intent(ShopActivity.this, Admin_Product_DecoratorActivity.class);
                 startActivity(intent);
             }
         });
@@ -96,7 +96,7 @@ public class manhinhnguoiban extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), dangnhap.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
             }
         });

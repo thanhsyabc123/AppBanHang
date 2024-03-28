@@ -1,4 +1,4 @@
-package com.example.doanmobile.dangkynguoiban;
+package com.example.doanmobile.ShopRegister;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -14,7 +14,7 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 
-public class dangkythanhcongthuong extends AppCompatActivity {
+public class ShopRegister_Success_Activity extends AppCompatActivity {
 
     TextView tennguoidangkythanhcong;
     FirebaseFirestore db;

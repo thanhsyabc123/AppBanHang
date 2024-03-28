@@ -1,6 +1,4 @@
-package com.example.doanmobile.coicuahangshopdetail;
-
-import static android.content.ContentValues.TAG;
+package com.example.doanmobile.ShopDetail;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,12 +19,9 @@ import com.example.doanmobile.R;
 import com.example.doanmobile.chat.ChatActivity;
 import com.example.doanmobile.dangsanpham.ProductAdapter;
 import com.example.doanmobile.dangsanpham.Products;
-import com.example.doanmobile.dangsanpham.chitietsanpham;
 import com.example.doanmobile.dangsanpham.tranggiaodienbanhang;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.CollectionReference;
@@ -39,12 +34,10 @@ import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
-import org.checkerframework.checker.nullness.qual.NonNull;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class cuahangshopdetail extends AppCompatActivity {
+public class ShopDetail_Activity extends AppCompatActivity {
     List<Products> productsList;
     ProductAdapter productAdapter;
     RecyclerView sanphamtheoshop;
@@ -93,7 +86,7 @@ public class cuahangshopdetail extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Lấy tên cửa hàng từ TextView
-                Intent intent = new Intent(cuahangshopdetail.this, ChatActivity.class);
+                Intent intent = new Intent(ShopDetail_Activity.this, ChatActivity.class);
                 intent.putExtra("shopId",shopId);
                 startActivity(intent);
 
@@ -105,7 +98,7 @@ public class cuahangshopdetail extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // Lấy tên cửa hàng từ TextView
-                Intent intent = new Intent(cuahangshopdetail.this, tranggiaodienbanhang.class);
+                Intent intent = new Intent(ShopDetail_Activity.this, tranggiaodienbanhang.class);
                 startActivity(intent);
 
             }
@@ -113,14 +106,14 @@ public class cuahangshopdetail extends AppCompatActivity {
 
         sanphamtheoshop = findViewById(R.id.sanphamtheoshop);
         productsList = new ArrayList<>();
-        productAdapter = new ProductAdapter(cuahangshopdetail.this, productsList);
+        productAdapter = new ProductAdapter(ShopDetail_Activity.this, productsList);
         productAdapter.updateProductFavoriteStatus(favoriteProducts);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(cuahangshopdetail.this, 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(ShopDetail_Activity.this, 2);
         sanphamtheoshop.setLayoutManager(gridLayoutManager);
         sanphamtheoshop.setAdapter(productAdapter);
 
         productCollection = FirebaseFirestore.getInstance().collection("Products");
-        AlertDialog.Builder builder = new AlertDialog.Builder(cuahangshopdetail.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(ShopDetail_Activity.this);
         builder.setCancelable(false);
         builder.setView(R.layout.progress_layout);
         AlertDialog dialog = builder.create();

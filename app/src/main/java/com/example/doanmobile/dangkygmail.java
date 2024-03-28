@@ -56,7 +56,7 @@ public class dangkygmail extends AppCompatActivity {
                                     public void onSuccess(Void aVoid) {
                                         Toast.makeText(dangkygmail.this, "Thông tin đã được lưu vào Firestore", Toast.LENGTH_SHORT).show();
                                         // (Optional) Nếu cần, thực hiện các bước tiếp theo sau khi lưu thông tin
-                                        Intent intent = new Intent(dangkygmail.this,dangnhap.class);
+                                        Intent intent = new Intent(dangkygmail.this, Login.class);
                                         startActivity(intent);
                                     }
                                 })

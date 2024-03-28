@@ -1,4 +1,4 @@
-package com.example.doanmobile.dangkynguoiban;
+package com.example.doanmobile.ShopRegister;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,37 +12,31 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import com.example.doanmobile.KhachHang;
+import com.example.doanmobile.Customer_Model;
 import com.example.doanmobile.R;
 import com.example.doanmobile.profileuser;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-import com.google.firebase.firestore.auth.User;
 
-import java.util.ArrayList;
-import java.util.List;
-
-public class dangkylenguoiban extends AppCompatActivity {
+public class ShopRegister_Activity extends AppCompatActivity {
     ImageView dknguoiban, dongdangkyshop;
     EditText nhaptencuahang, nhaptendiachi, nhapmotacuahang;
     CheckBox nguoibanthuong, nguoibanvip;
-    KhachHang khachHang;
+    Customer_Model customerModel;
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dangkylenguoiban);
-        khachHang = new KhachHang(); // Khởi tạo đối tượng KhachHang
+        customerModel = new Customer_Model(); // Khởi tạo đối tượng KhachHang
         nguoibanthuong = findViewById(R.id.nguoibanthuong);
         nguoibanvip = findViewById(R.id.nguoibanvip);
         nguoibanthuong.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -50,9 +44,9 @@ public class dangkylenguoiban extends AppCompatActivity {
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 if (b) {
                     nguoibanvip.setChecked(false);
-                    khachHang.setKhachHang(false);
-                    khachHang.setNguoiBan(true);
-                    khachHang.setNguoiBanVip(false);
+                    customerModel.setKhachHang(false);
+                    customerModel.setNguoiBan(true);
+                    customerModel.setNguoiBanVip(false);
                 }
             }
         });
@@ -60,9 +54,9 @@ public class dangkylenguoiban extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
                 nguoibanthuong.setChecked(false);
-                khachHang.setKhachHang(false);
-                khachHang.setNguoiBan(false);
-                khachHang.setNguoiBanVip(true);
+                customerModel.setKhachHang(false);
+                customerModel.setNguoiBan(false);
+                customerModel.setNguoiBanVip(true);
             }
         });
 
@@ -71,7 +65,7 @@ public class dangkylenguoiban extends AppCompatActivity {
         dongdangkyshop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(dangkylenguoiban.this, profileuser.class);
+                Intent intent = new Intent(ShopRegister_Activity.this, profileuser.class);
                 startActivity(intent);
             }
         });
@@ -110,16 +104,16 @@ public class dangkylenguoiban extends AppCompatActivity {
                                 public void onSuccess(DocumentSnapshot documentSnapshot) {
                                     if (documentSnapshot.exists()) {
 
-                                        KhachHang khachHang = documentSnapshot.toObject(KhachHang.class);
+                                        Customer_Model customerModel = documentSnapshot.toObject(Customer_Model.class);
 
 
 
                                         int userId = documentSnapshot.getLong("userID").intValue();
-                                        Shop newShop = new Shop();
-                                        newShop.setShopName(tencuahang);
-                                        newShop.setDiaChi(diachicuahang);
-                                        newShop.setMoTa(motacuahang);
-                                        newShop.setUserId(userId);
+                                        ShopModel newShopModel = new ShopModel();
+                                        newShopModel.setShopName(tencuahang);
+                                        newShopModel.setDiaChi(diachicuahang);
+                                        newShopModel.setMoTa(motacuahang);
+                                        newShopModel.setUserId(userId);
 
                                         db.collection("Shop")
                                                 .orderBy("shopId", Query.Direction.DESCENDING)
@@ -137,28 +131,28 @@ public class dangkylenguoiban extends AppCompatActivity {
                                                         }
 
 
-                                                        newShop.setShopId(newshopId);
+                                                        newShopModel.setShopId(newshopId);
                                                         String documentId = user.getUid();
 
                                                         DocumentReference shopRef = db.collection("Shop").document(documentId);
 
-                                                        shopRef.set(newShop);
+                                                        shopRef.set(newShopModel);
 
                                                         db.collection("Shop")
-                                                                .add(newShop)
+                                                                .add(newShopModel)
 
                                                                 .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                                                     @Override
                                                                     public void onSuccess(DocumentReference documentReference) {
-                                                                        khachHang.setNguoiBan(true);
-                                                                        khachHang.setKhachHang(false);
+                                                                        customerModel.setNguoiBan(true);
+                                                                        customerModel.setKhachHang(false);
 
                                                                         db.collection("KhachHang")
                                                                                 .document(user.getUid())
-                                                                                .set(khachHang);
+                                                                                .set(customerModel);
 
-                                                                        Toast.makeText(dangkylenguoiban.this, "Đăng ký người bán thành công", Toast.LENGTH_SHORT).show();
-                                                                        Intent intent = new Intent(dangkylenguoiban.this, dangkythanhcongthuong.class);
+                                                                        Toast.makeText(ShopRegister_Activity.this, "Đăng ký người bán thành công", Toast.LENGTH_SHORT).show();
+                                                                        Intent intent = new Intent(ShopRegister_Activity.this, ShopRegister_Success_Activity.class);
                                                                         startActivity(intent);
                                                                     }
                                                                 });

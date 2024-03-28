@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
+import com.example.doanmobile.ShopRegister.ShopActivity;
 import com.example.doanmobile.hoadon.OrderDetail;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -49,7 +49,7 @@ public class hoadonnguoiban extends AppCompatActivity {
         closeordershopne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(hoadonnguoiban.this, manhinhnguoiban.class);
+                Intent intent = new Intent(hoadonnguoiban.this, ShopActivity.class);
                 startActivity(intent);
             }
         });

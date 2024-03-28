@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.doanmobile.KhachHang;
+import com.example.doanmobile.Customer_Model;
 import com.example.doanmobile.R;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -55,8 +55,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder> 
         shopQuery1.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
                 for (QueryDocumentSnapshot document : task.getResult()) {
-                    KhachHang khachHang = document.toObject(KhachHang.class);
-                    holder. tennguoimuaorder.setText(khachHang.getTenDayDu());
+                    Customer_Model customerModel = document.toObject(Customer_Model.class);
+                    holder. tennguoimuaorder.setText(customerModel.getTenDayDu());
                 }
             } else {
                 // Xử lý trường hợp không thành công

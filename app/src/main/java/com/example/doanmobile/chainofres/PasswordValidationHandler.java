@@ -3,8 +3,6 @@ package com.example.doanmobile.chainofres;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.example.doanmobile.dangky;
-
 public class PasswordValidationHandler extends BaseLoginHandler{
     private Context context;
     public PasswordValidationHandler(Context context) {

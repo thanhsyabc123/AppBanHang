@@ -2,9 +2,7 @@ package com.example.doanmobile.dangsanpham;
 
 import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -20,22 +18,16 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.doanmobile.R;
 import com.example.doanmobile.chat.ChatActivity;
-import com.example.doanmobile.coicuahangshopdetail.cuahangshopdetail;
-import com.example.doanmobile.dangkynguoiban.Shop;
+import com.example.doanmobile.ShopDetail.ShopDetail_Activity;
 import com.example.doanmobile.danhgiasanpham.ReViewAdapter;
 import com.example.doanmobile.danhgiasanpham.Review;
 import com.example.doanmobile.giohang.GioHangActivity;
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -243,7 +235,7 @@ public class chitietsanpham extends AppCompatActivity {
         detailtencuahang.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(chitietsanpham.this, cuahangshopdetail.class);
+                Intent intent = new Intent(chitietsanpham.this, ShopDetail_Activity.class);
                 intent.putExtra("shopId", shopId);
                 startActivity(intent);
             }

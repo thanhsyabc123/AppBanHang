@@ -4,9 +4,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
-import com.example.doanmobile.KhachHang;
-import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
-import com.example.doanmobile.dangnhap;
+import com.example.doanmobile.Customer_Model;
+import com.example.doanmobile.ShopRegister.ShopActivity;
 import com.example.doanmobile.trangchunguoidung;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -42,19 +41,19 @@ public class FirebaseAuthenticationHandler extends BaseLoginHandler {
                             @Override
                             public void onSuccess(DocumentSnapshot documentSnapshot) {
                                 if (documentSnapshot.exists()) {
-                                    KhachHang khachHang = documentSnapshot.toObject(KhachHang.class);
+                                    Customer_Model customerModel = documentSnapshot.toObject(Customer_Model.class);
 
-                                    if (khachHang != null) {
-                                        if (khachHang.isKhachHang()) {
+                                    if (customerModel != null) {
+                                        if (customerModel.isKhachHang()) {
                                             Intent intent = new Intent(context, trangchunguoidung.class);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             context.startActivity(intent);
-                                        } else if (khachHang.isNguoiBan()) {
-                                            Intent intent = new Intent(context, manhinhnguoiban.class);
+                                        } else if (customerModel.isNguoiBan()) {
+                                            Intent intent = new Intent(context, ShopActivity.class);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             context.startActivity(intent);
-                                        } else if (khachHang.isNguoiBanVip()) {
-                                            Intent intent = new Intent(context, manhinhnguoiban.class);
+                                        } else if (customerModel.isNguoiBanVip()) {
+                                            Intent intent = new Intent(context, ShopActivity.class);
                                             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
                                             context.startActivity(intent);
                                         }
@@ -64,9 +63,6 @@ public class FirebaseAuthenticationHandler extends BaseLoginHandler {
                                 }
                             }
                         });
-//                        Intent intent = new Intent(context, trangchunguoidung.class);
-//                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
-//                        context.startActivity(intent);
                     } else {
                         // Authentication failed, handle the error
                         Toast.makeText(context, "Đăng nhập thất bại: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();

@@ -4,7 +4,6 @@ import static androidx.constraintlayout.helper.widget.MotionEffect.TAG;
 
 import android.content.Context;
 import android.content.Intent;
-import android.media.Image;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangnhap;
+import com.example.doanmobile.Login;
 import com.example.doanmobile.yeuthichsanpham.Favorites;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -113,7 +112,7 @@ public class ProductAdapter extends RecyclerView.Adapter<sanphamHolder> {
                 }
                 else{
                     Toast.makeText(context, "Yêu cầu đăng nhập", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(context, dangnhap.class);
+                    Intent intent = new Intent(context, Login.class);
                     context.startActivity(intent);
                 }
             }
@@ -141,7 +140,7 @@ public class ProductAdapter extends RecyclerView.Adapter<sanphamHolder> {
                     context.startActivity(intent);}
                 else{
                     Toast.makeText(context, "Yêu cầu đăng nhập", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(context, dangnhap.class);
+                    Intent intent = new Intent(context, Login.class);
                     context.startActivity(intent);
                 }
             }

@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.doanmobile.chat.ChatHistoryActivity;
-import com.example.doanmobile.dangkynguoiban.dangkylenguoiban;
+import com.example.doanmobile.ShopRegister.ShopRegister_Activity;
 import com.example.doanmobile.danhgiasanpham.trangxemdanhgianguoidung;
 import com.example.doanmobile.hoadon.xemhoadonuser;
 import com.example.doanmobile.yeuthichsanpham.yeuthichsanpham;
@@ -20,10 +20,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class profileuser extends AppCompatActivity {
 
@@ -109,7 +105,7 @@ public class profileuser extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 FirebaseAuth.getInstance().signOut();
-                startActivity(new Intent(getApplicationContext(), dangnhap.class));
+                startActivity(new Intent(getApplicationContext(), Login.class));
                 finish();
             }
         });
@@ -118,7 +114,7 @@ public class profileuser extends AppCompatActivity {
         dkyngbanpf.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(profileuser.this, dangkylenguoiban.class);
+                Intent intent = new Intent(profileuser.this, ShopRegister_Activity.class);
                 startActivity(intent);
             }
         });

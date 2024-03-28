@@ -7,12 +7,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.example.doanmobile.R;
-import com.example.doanmobile.dangkynguoiban.manhinhnguoiban;
 import com.example.doanmobile.dangsanpham.ItemSpacingDecoration;
 import com.example.doanmobile.hoadon.Order;
 import com.google.firebase.firestore.CollectionReference;

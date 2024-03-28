@@ -1,6 +1,6 @@
-package com.example.doanmobile.dangkynguoiban;
+package com.example.doanmobile.ShopRegister;
 
-public class Shop {
+public class ShopModel {
     private int shopId;
     private int userId;
     private String shopName;
@@ -47,9 +47,9 @@ public class Shop {
         this.moTa = moTa;
     }
 
-    public Shop() {}
+    public ShopModel() {}
 
-    public Shop(int shopId, int userId, String shopName, String diaChi, String moTa) {
+    public ShopModel(int shopId, int userId, String shopName, String diaChi, String moTa) {
         this.shopId = shopId;
         this.userId = userId;
         this.shopName = shopName;
